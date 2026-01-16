@@ -1,7 +1,7 @@
 /** @type {import('tailwindcss').Config} */
 export default {
   darkMode: "class",
-  content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}", "!./node_modules/**" ],
+  content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}", "!./node_modules/**"],
   theme: {
     extend: {
       colors: {
@@ -21,6 +21,7 @@ export default {
         glass: "rgba(255, 255, 255, 0.04)",
         pending: "#FF7D01",
         paid: "#34C759",
+        navyblue: "#00114E",
         admininput: "hsba(240, 3%, 12%, 0.12)",
       },
       boxShadow: {
@@ -52,6 +53,15 @@ export default {
         meutasThin: ["Meutas Thin", "sans-serif"],
         meutasBold: ["Meutas Bold", "sans-serif"],
         meutasBlack: ["Meutas Black", "sans-serif"],
+      },
+      animation: {
+        'spin-fast': 'spin 8s linear infinite', // faster spin
+      },
+      keyframes: {
+        spin: {
+          '0%': { transform: 'rotate(0deg)' },
+          '100%': { transform: 'rotate(360deg)' },
+        },
       },
     },
   },
