@@ -72,7 +72,7 @@ const Navbar = () => {
 
   {/* Dropdown Menu */}
   {isProductsOpen && (
-    <div className="absolute top-full left-1/2 -translate-x-1/2 mt-6 bg-white rounded-3xl shadow-2xl p-8 w-full">
+    <div className="absolute top-full left-1/2 -translate-x-1/2 mt-6 bg-white rounded-3xl shadow-2xl p-8 w-[920px]">
       <div className="grid grid-cols-[280px_1fr] gap-12">
         {/* Left Column - Categories */}
         <div className="bg-orange-50 rounded-2xl p-6">
