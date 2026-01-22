@@ -39,6 +39,29 @@ import preview_img_1 from "./preview_img_1.svg"
 import preview_img_2 from "./preview_img_2.svg"
 import preview_img_3 from "./preview_img_3.svg"
 import preview_img_4 from "./preview_img_4.svg"
+import smashRemit from "./smashremit.svg"
+import smashremit_banner from "./smashremit_banner.svg"
+import smashfood_banner from "./smashfood_banner.svg"
+import smashwise_banner from "./smashwise_banner.svg"
+import Qiimeet_banner from "./Qiimeet_banner.svg"
+import ridesmash_banner from "./ridesmash_banner.svg"
+import smashchat_banner from "./smashchat_banner.svg"
+import paradise_banner from "./paradise_banner.svg"
+import PSF_banner from "./PSF_banner.svg"
+import smashmail_banner from "./smashmail_banner.svg"
+import smashtravels_banner from "./smashtravels_banner.svg"
+import smashinvoice_banner from "./smashinvoice_banner.svg"
+import smashapartments_banner from "./smashapartments_banner.svg"
+import appstore_icon from "./appstore_icon.svg"
+import playstore_icon from "./Playstore_icon.svg"
+import handshake from "./handshake.png"
+
+
+
+
+
+
+
 
 
 
@@ -60,5 +83,7 @@ export const assets = {
     Logo,qiimeet,ridesmash,smashchat,smashwise,smashfood,paradise,circlearrow,History,History2,Hero1,Hero2,FourArrows,
     cuate,pana,pana2,amico,Banner1,Smashchat2,Smashfood1,Qiimeet2,work1,work2,work3,work4,work5,testimonial_1,testimonial_2,
     testimonial_3,testimonial_4,testimonial_vid_1,smashTechnology_logo,smashTravels_logo,smashapartments,smashLogistics_logo,
-    smashMail_logo,smashApartment,preview_img_1,preview_img_2,preview_img_3,preview_img_4
+    smashMail_logo,smashApartment,preview_img_1,preview_img_2,preview_img_3,preview_img_4,smashRemit,smashchat_banner,ridesmash_banner,
+    Qiimeet_banner,smashwise_banner,smashfood_banner,smashremit_banner,paradise_banner,PSF_banner,smashmail_banner,smashtravels_banner,
+    smashinvoice_banner,smashapartments_banner,playstore_icon,appstore_icon,handshake
 }

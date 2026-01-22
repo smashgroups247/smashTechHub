@@ -189,10 +189,6 @@ export function Testimonials() {
                 
             </section>
 
-            {/* CTA */}
-            <section className=" -mt-10">
-                
-            </section>
         </>
     )
 }
