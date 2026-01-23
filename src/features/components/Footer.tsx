@@ -209,7 +209,7 @@ const brands = [
 
 export const Footer = () => {
     return (
-        <footer className="bg-black text-white py-16 border-t border-white/10">
+        <footer className="bg-black text-white py-16 border-t rounded-t-[62px] border-white/10">
             <div className="max-w-7xl mx-auto px-6">
 
                 {/* TOP GRID */}
@@ -271,16 +271,17 @@ export const Footer = () => {
                     </div>
 
                     {/* Newsletter */}
-                    <div className="bg-gradient-to-r from-gray-900 to-gray-800 rounded-3xl p-6 border border-white/10">
+                    <div className="bg-white/4 w-full rounded-3xl p-6 border border-white/10">
                         <h3 className="text-base font-bold mb-4">
                             Subscribe to our newsletter to get latest and juicy offers
                         </h3>
-                        <div className="space-y-3">
+                        <div className="relative">
                             <input
+                                type="email"
                                 placeholder="Enter your email"
-                                className="w-full bg-gray-800 border border-white/10 rounded-full px-5 py-3 text-sm"
+                                className="w-full bg-white/12 border border-white/10 rounded-xl pl-5 pr-28 sm:pr-32 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-orange-500/50 focus:border-orange-500 transition-all"
                             />
-                            <button className="w-full bg-orange-500 hover:bg-orange-600 rounded-full py-3 font-semibold">
+                            <button className="absolute right-1.5 top-1/2 -translate-y-1/2 bg-orange-500 hover:bg-orange-600 rounded-full px-4 sm:px-6 py-2 text-sm font-semibold transition-colors">
                                 Subscribe
                             </button>
                         </div>
