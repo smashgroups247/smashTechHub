@@ -55,6 +55,18 @@ import smashapartments_banner from "./smashapartments_banner.svg"
 import appstore_icon from "./appstore_icon.svg"
 import playstore_icon from "./Playstore_icon.svg"
 import handshake from "./handshake.png"
+import twirlyArrow from "./twirly_arrow.svg"
+import ourJourney_img from "./ourJourney_img.svg"
+import pm_img from "./PM_img.svg"
+import creativity from "./creativity.svg"
+import integrity from "./integrity.svg"
+import innovation from "./innovation.svg"
+import excellence from "./excellence.svg"
+import collaboration from "./collaboration.svg"
+
+
+
+
 
 
 
@@ -85,5 +97,6 @@ export const assets = {
     testimonial_3,testimonial_4,testimonial_vid_1,smashTechnology_logo,smashTravels_logo,smashapartments,smashLogistics_logo,
     smashMail_logo,smashApartment,preview_img_1,preview_img_2,preview_img_3,preview_img_4,smashRemit,smashchat_banner,ridesmash_banner,
     Qiimeet_banner,smashwise_banner,smashfood_banner,smashremit_banner,paradise_banner,PSF_banner,smashmail_banner,smashtravels_banner,
-    smashinvoice_banner,smashapartments_banner,playstore_icon,appstore_icon,handshake
+    smashinvoice_banner,smashapartments_banner,playstore_icon,appstore_icon,handshake,twirlyArrow,ourJourney_img,pm_img,collaboration,
+    creativity,integrity,innovation,excellence
 }

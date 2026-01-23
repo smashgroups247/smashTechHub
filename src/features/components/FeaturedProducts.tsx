@@ -82,11 +82,14 @@ const FeaturedProducts = () => {
   ];
 
   return (
-    <section className="py-16 sm:py-20 lg:py-24 bg-gradient-to-b from-gray-50 to-white">
+    <section className="py-16 sm:py-20 lg:py-24 bg-[#FFF8F5]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="flex flex-col md:flex-row items-start md:items-center justify-between mb-12 gap-4 md:gap-0">
-          <div className="flex-1">
+          <div className="flex-1 relative">
+            <div className="absolute -top-10 left-0 bg-[#A2FF76] text-black text-sm font-semibold px-4 py-1.5 rounded-full -rotate-12">
+              Enterprise
+            </div>
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 mb-2">Featured Products</h2>
             <p className="text-gray-600 text-base sm:text-lg">
               We combine creativity, strategy, and technology to deliver results that matter.

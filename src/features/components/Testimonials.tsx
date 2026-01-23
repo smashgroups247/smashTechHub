@@ -56,7 +56,7 @@ export function Testimonials() {
     return (
         <>
             {/* TESTIMONIALS */}
-            <section className=" py-24 rounded-[48px] relative">
+            <section className="bg-[#FFF8F5] py-24 rounded-[48px] relative">
                 <div className="max-w-6xl mx-auto px-6 py-24 grid grid-cols-1 lg:grid-cols-2 gap-20 items-center bg-[#F4E9DA] rounded-t-[48px]">
 
                     {/* LEFT */}

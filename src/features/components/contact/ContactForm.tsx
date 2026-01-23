@@ -24,8 +24,8 @@ const ContactForm = () => {
     }
 
     return (
-        <section className="py-20 bg-white">
-            <div className="max-w-7xl mx-auto px-6">
+        <section className="py-20 bg-[#FFF8F5]">
+            <div className="max-w-7xl mx-auto px-6 bg-white py-10 px-10 rounded-3xl">
                 {/* Header */}
                 <div className="text-left mb-16">
                     <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-4">
@@ -39,7 +39,7 @@ const ContactForm = () => {
                 {/* Grid Layout */}
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
                     {/* Left Side - Form */}
-                    <div className="bg-gray-50 rounded-3xl p-8 lg:p-10">
+                    <div className="bg-[#FAFAFA] rounded-3xl p-8 lg:p-10">
                         <h3 className="text-2xl font-bold text-gray-900 mb-6">
                             Get in Touch
                         </h3>
@@ -56,7 +56,7 @@ const ContactForm = () => {
                                     placeholder="Enter your name"
                                     value={formData.name}
                                     onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                                    className="w-full px-4 py-3 bg-white border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent transition-all"
+                                    className="w-full px-4 py-3 bg-white  rounded-xl focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent transition-all"
                                 />
                             </div>
 
@@ -71,7 +71,7 @@ const ContactForm = () => {
                                     placeholder="Enter your email"
                                     value={formData.email}
                                     onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                                    className="w-full px-4 py-3 bg-white border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent transition-all"
+                                    className="w-full px-4 py-3 bg-white  rounded-xl focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent transition-all"
                                 />
                             </div>
 
@@ -84,7 +84,7 @@ const ContactForm = () => {
                                     id="service"
                                     value={formData.service}
                                     onChange={(e) => setFormData({ ...formData, service: e.target.value })}
-                                    className="w-full px-4 py-3 bg-white border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent transition-all appearance-none cursor-pointer"
+                                    className="w-full px-4 py-3 bg-white  rounded-xl focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent transition-all appearance-none cursor-pointer"
                                     style={{
                                         backgroundImage: `url("data:image/svg+xml,%3Csvg width='12' height='8' viewBox='0 0 12 8' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1L6 6L11 1' stroke='%23666' stroke-width='2' stroke-linecap='round'/%3E%3C/svg%3E")`,
                                         backgroundRepeat: 'no-repeat',
@@ -112,7 +112,7 @@ const ContactForm = () => {
                                     value={formData.message}
                                     onChange={handleMessageChange}
                                     maxLength={200}
-                                    className="w-full px-4 py-3 bg-white border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent transition-all resize-none"
+                                    className="w-full px-4 py-3 bg-white rounded-xl focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent transition-all resize-none"
                                 />
                                 <div className="text-right text-sm text-gray-500 mt-2">
                                     {charCount}/200
@@ -134,7 +134,7 @@ const ContactForm = () => {
                     {/* Right Side - Contact Info */}
                     <div className="space-y-8">
                         {/* Contact Info Section */}
-                        <div className='bg-gray-50 rounded-3xl p-8'>
+                        <div className='bg-[#FAFAFA] rounded-3xl p-8'>
                             <h3 className="text-2xl font-bold text-gray-900 mb-6">
                                 Contact Info
                             </h3>
@@ -219,15 +219,15 @@ const ContactForm = () => {
                 </div>
             </div>
             <div
-                className="max-w-7xl mx-auto bg-[#5B6B32] rounded-[32px] md:rounded-[48px] mt-16 md:mt-24 px-6 sm:px-8 md:px-10 py-14 sm:py-16 md:py-20 flex flex-col md:flex-row items-start md:items-center justify-between gap-8 md:gap-10"  >
+                className="max-w-7xl mx-auto bg-[#556B2F] rounded-[32px] md:rounded-[48px] mt-10 md:mt-24 px-6 sm:px-8 md:px-10 py-14 sm:py-16 md:py-20 flex flex-col md:flex-row items-start md:items-center justify-between gap-8 md:gap-10"  >
                 {/* Text */}
                 <div className="text-white max-w-xl">
-                    <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold leading-tight">
-                        Ready To Build Something Amazing
+                    <h2 className="text-2xl sm:text-4xl md:text-5xl font-bold leading-tight">
+                        Let’s Collaborate
                     </h2>
 
-                    <p className="text-white/80 mt-4 text-base sm:text-lg">
-                        Let’s bring your ideas to life with beautiful design and powerful technology.
+                    <p className="text-white/80  text-base sm:text-lg">
+                        Big or small, your idea deserves exceptional execution.
                     </p>
                 </div>
 
@@ -235,8 +235,8 @@ const ContactForm = () => {
                 <Image
                     src={assets.handshake}
                     alt="Start a Project"
-                    width={180}
-                    height={80}
+                    width={50}
+                    height={50}
                     priority
                     className="
       rounded-full

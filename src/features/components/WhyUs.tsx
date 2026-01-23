@@ -35,10 +35,13 @@ const WhyUs = () => {
   ];
 
   return (
-    <section className="py-16 sm:py-20 lg:py-24 bg-gradient-to-b from-white to-gray-50">
+    <section className="py-16 sm:py-20 lg:py-24 bg-[#FFF8F5]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
-        <div className="mb-12 sm:mb-16">
+        <div className="mb-12 sm:mb-16 relative">
+          <div className="absolute -top-10 left-0 bg-[#A2FF76] text-black text-sm font-semibold px-4 py-1.5 rounded-full -rotate-12">
+              Values
+            </div>
           <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-3 sm:mb-4">
             Why Brands Work With Us
           </h2>

@@ -78,8 +78,11 @@ export default function Process() {
     }, [])
 
     return (
-        <section ref={sectionRef} className="py-24 bg-white relative">
-            <div className="max-w-6xl mx-auto px-6">
+        <section ref={sectionRef} className="py-24 bg-[#FFF8F5] relative">
+            <div className="max-w-6xl mx-auto px-6 relative">
+                <div className="absolute -top-10 left-0 bg-[#A2FF76] text-black text-sm font-semibold px-4 py-1.5 rounded-full -rotate-12">
+              Process
+            </div>
                 <h2 className="text-5xl font-bold mb-20">How We Work</h2>
 
                 <div className="relative">

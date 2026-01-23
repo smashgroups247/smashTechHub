@@ -21,6 +21,21 @@ type Project = {
     features?: string[]
 }
 
+const projectNameColors: Record<string, string> = {
+  Ridesmash: "text-black-500",
+  Qiimeet: "text-pink-500",
+  SmashChat: "text-[#0485E0]",
+  SmashFood: "text-[#00472B]",
+  Smashwise: "text-[#FC731B]",
+  SmashRemit: "text-[#0991FF]",
+  "Smash Apartment": "text-black-500",
+  "Paradise Estate": "text-[#BA0000]",
+  "Paul Smith Initiatives": "text-[#EC723B]",
+  SmashInvoice: "text-[#FF3A00]",
+  "Smash Mail": "text-[#F46B09]",
+  "Smash Travels": "text-[#FD9602]",
+}
+
 const mobileProjects: Project[] = [
     {
         id: 1,
@@ -211,200 +226,156 @@ const cardVariants = {
 }
 
 export default function ProjectCards() {
-    const [activeTag, setActiveTag] = useState<"Mobile" | "Web" | "Branding">(
-        "Mobile"
-    )
+  const [activeTag, setActiveTag] = useState<"Mobile" | "Web" | "Branding">(
+    "Mobile"
+  )
 
-    const projectsMap = {
-        Mobile: mobileProjects,
-        Web: webProjects,
-        Branding: brandingProjects,
-    }
+  const projectsMap = {
+    Mobile: mobileProjects,
+    Web: webProjects,
+    Branding: brandingProjects,
+  }
 
-    const activeProjects = projectsMap[activeTag]
+  const activeProjects = projectsMap[activeTag]
 
-    return (
-        <section className="bg-white py-24">
-            <div className="max-w-7xl mx-auto px-6">
-                {/* Header */}
-                <header className="mb-16">
-                    <h2 className="text-4xl md:text-5xl font-bold text-gray-900">
-                        Take a Look At Our Work
-                    </h2>
-                    <p className="text-gray-500 mt-3 max-w-2xl">
-                        Carefully crafted UI/UX design and modern development powering real-world products.
-                    </p>
+  return (
+    <section className="bg-[#FFF8F5] py-16 sm:py-20 md:py-24">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6">
 
-                    {/* Filter */}
-                    <div className="flex flex-wrap gap-3 mt-8">
-                        {["Mobile", "Web", "Branding"].map((tag) => (
-                            <button
-                                key={tag}
-                                onClick={() => setActiveTag(tag as any)}
-                                className={`px-5 py-2 rounded-full text-sm font-medium transition ${activeTag === tag
-                                    ? "bg-orange-500 text-white"
-                                    : "bg-orange-100 text-orange-700 hover:bg-orange-200"
-                                    }`}
-                            >
-                                {tag}
-                            </button>
-                        ))}
-                    </div>
-                </header>
+        <header className="mb-12 sm:mb-16">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900">
+            Take a Look At Our Work
+          </h2>
 
-                {/* Animated Projects */}
-                <AnimatePresence mode="wait">
-                    <motion.div
-                        key={activeTag}
-                        variants={containerVariants}
-                        initial="hidden"
-                        animate="visible"
-                        exit="hidden"
-                        className="space-y-28"
-                    >
-                        {activeProjects.length === 0 && (
-                            <motion.div
-                                variants={cardVariants}
-                                className="text-center py-32 text-gray-400"
-                            >
-                                Coming soon 🚀
-                            </motion.div>
-                        )}
+          <p className="text-gray-500 mt-3 max-w-2xl text-sm sm:text-base">
+            Carefully crafted UI/UX design and modern development powering real-world products.
+          </p>
 
-                        {activeProjects.map((p) => (
-                            <motion.div
-                                key={p.id}
-                                variants={cardVariants}
-                                className="flex flex-col gap-10 items-center w-full"
-                            >
-                                {/* Image */}
-                                <div className="relative rounded-3xl overflow-hidden min-h-[520px] w-full">
-                                    <Image
-                                        src={p.image}
-                                        alt={p.name}
-                                        fill
-                                        className="object-cover"
-                                        priority
-                                    />
-                                </div>
+          {/* FILTER */}
+          <div className="flex flex-wrap gap-3 mt-6 sm:mt-8">
+            {["Mobile", "Web", "Branding"].map((tag) => (
+              <button
+                key={tag}
+                onClick={() => setActiveTag(tag as any)}
+                className={`px-5 py-2 rounded-full text-sm font-medium transition
+                ${
+                  activeTag === tag
+                    ? "bg-orange-100 text-orange-700"
+                    : "bg-white text-[#393838] hover:bg-orange-200"
+                }`}
+              >
+                {tag}
+              </button>
+            ))}
+          </div>
+        </header>
 
-                                {/* Content */}
-                                <div className="space-y-6 w-full max-w-7xl">
-                                    <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center">
-                                        <h3 className="text-3xl font-bold text-gray-900 flex items-center gap-2">
-                                            {p.name}
-                                            <ArrowUpRight className="w-5 h-5" />
-                                        </h3>
-                                        <span className="text-gray-500">
-                                            Duration → {p.duration}
-                                        </span>
-                                    </div>
-
-                                    {/* Overview */}
-                                    <div className="flex flex-col sm:flex-row gap-4">
-                                        <p className="text-sm uppercase tracking-wide text-gray-400 min-w-[110px]">
-                                            Overview →
-                                        </p>
-                                        <p className="text-gray-700 leading-relaxed flex-1">
-                                            {p.overview}
-                                        </p>
-                                    </div>
-
-                                    <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-4 pt-4">
-                                        <div className="flex flex-wrap gap-3">
-                                            {p.tags.map((t, i) => (
-                                                <span
-                                                    key={i}
-                                                    className="px-4 py-2 rounded-full bg-[#F2E5D5] text-orange-700 text-sm font-medium"
-                                                >
-                                                    {t}
-                                                </span>
-                                            ))}
-                                        </div>
-                                        <div className="flex gap-3">
-                                            {/* MOBILE: App store links */}
-                                            {activeTag === "Mobile" && (
-                                                <>
-                                                    <Link
-                                                        href="https://play.google.com/store/apps/details?id=your.app.id"
-                                                        target="_blank"
-                                                        rel="noopener noreferrer"
-                                                        aria-label="Open Play Store"
-                                                        className="w-25 h-9 rounded flex items-center justify-center
-                   transition-all duration-300 ease-out
-                   hover:-translate-y-1 hover:shadow-md"
-                                                    >
-                                                        <Image
-                                                            src={assets.playstore_icon}
-                                                            alt="Play Store"
-                                                            width={100}
-                                                            height={40}
-                                                            className="object-contain"
-                                                        />
-                                                    </Link>
-
-                                                    <Link
-                                                        href="https://apps.apple.com/app/idYOUR_APP_ID"
-                                                        target="_blank"
-                                                        rel="noopener noreferrer"
-                                                        aria-label="Open App Store"
-                                                        className="w-25 h-9 rounded flex items-center justify-center
-                   transition-all duration-300 ease-out
-                   hover:-translate-y-1 hover:shadow-md"
-                                                    >
-                                                        <Image
-                                                            src={assets.appstore_icon}
-                                                            alt="App Store"
-                                                            width={100}
-                                                            height={40}
-                                                            className="object-contain"
-                                                        />
-                                                    </Link>
-                                                </>
-                                            )}
-
-                                            {/* WEB: Visit website link */}
-                                            {activeTag === "Web" && (
-                                                <Link
-                                                    href="https://smashapartment.com" // 🔁 replace with real URL
-                                                    target="_blank"
-                                                    rel="noopener noreferrer"
-                                                    className="text-orange-600 font-medium flex items-center gap-2
-                 transition-all duration-300 ease-out
-                 hover:-translate-y-1 hover:text-orange-700"
-                                                >
-                                                    Visit website
-                                                    <ArrowUpRight className="w-4 h-4" />
-                                                </Link>
-                                            )}
-
-                                            {/* BRANDING: nothing */}
-                                        </div>
-
-
-                                    </div>
-                                </div>
-                            </motion.div>
-                        ))}
-                    </motion.div>
-                </AnimatePresence>
-            </div>
-            <div className="max-w-7xl mx-auto bg-[#5B6B32] py-20 rounded-[48px]
-                flex flex-col md:flex-row justify-between items-center
-                gap-10 px-10 mt-24">
-                <div className="text-white">
-                    <h2 className="text-5xl font-bold">
-                        Ready To Build Something Amazing
-                    </h2>
-                    <p className="text-white/80 mt-4 text-lg">
-                        Let’s bring your ideas to life with beautiful design and powerful technology.
-                    </p>
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={activeTag}
+            variants={containerVariants}
+            initial="hidden"
+            animate="visible"
+            exit="hidden"
+            className="space-y-20 sm:space-y-24 md:space-y-28"
+          >
+            {activeProjects.map((p) => (
+              <motion.div
+                key={p.id}
+                variants={cardVariants}
+                className="flex flex-col gap-8 sm:gap-10"
+              >
+                {/* IMAGE */}
+                <div className="relative rounded-2xl sm:rounded-3xl overflow-hidden min-h-[280px] sm:min-h-[380px] md:min-h-[520px] w-full">
+                  <Image
+                    src={p.image}
+                    alt={p.name}
+                    fill
+                    className="object-cover"
+                    priority
+                  />
                 </div>
 
-                <button className="bg-orange-500 hover:bg-orange-600 text-white px-6 py-3 rounded-full font-medium mt-2 flex items-center justify-center gap-2">
-                    Start a Project <Rocket className="w-5 h-5" />
-                </button>
-            </div>
-        </section>
-    )
+                {/* CONTENT */}
+                <div className="space-y-6">
+
+                  {/* TITLE + DURATION */}
+                  <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-3">
+                    <h3
+                      className={`
+                        font-bold
+                        text-xl sm:text-2xl md:text-3xl
+                        ${projectNameColors[p.name] ?? "text-gray-900"}
+                      `}
+                    >
+                      {p.name}
+                    </h3>
+
+                    <span className="text-sm text-gray-500">
+                      Duration → {p.duration}
+                    </span>
+                  </div>
+
+                  {/* OVERVIEW */}
+                  <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
+                    <p className="text-xs sm:text-sm uppercase tracking-wide text-gray-400 min-w-[110px]">
+                      Overview →
+                    </p>
+                    <p className="text-gray-700 leading-relaxed text-sm sm:text-base">
+                      {p.overview}
+                    </p>
+                  </div>
+
+                  {/* TAGS + LINKS */}
+                  <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-5 pt-2">
+                    <div className="flex flex-wrap gap-2 sm:gap-3">
+                      {p.tags.map((t, i) => (
+                        <span
+                          key={i}
+                          className="px-3 py-1.5 rounded-full bg-[#F2E5D5] text-black text-xs sm:text-sm font-medium"
+                        >
+                          {t}
+                        </span>
+                      ))}
+                    </div>
+
+                    {/* LINKS */}
+                    {activeTag === "Web" && (
+                      <Link
+                        href="#"
+                        className="text-orange-600 font-medium flex items-center gap-2 hover:text-orange-700"
+                      >
+                        Visit website
+                        <ArrowUpRight className="w-4 h-4" />
+                      </Link>
+                    )}
+                  </div>
+                </div>
+              </motion.div>
+            ))}
+          </motion.div>
+        </AnimatePresence>
+      </div>
+
+      {/* ----------------------------- CTA ----------------------------- */}
+      <div className="max-w-7xl mx-auto bg-[#5B6B32] mt-20 sm:mt-24 rounded-3xl md:rounded-[48px]
+        px-6 sm:px-10 py-12 sm:py-16
+        flex flex-col md:flex-row items-start md:items-center gap-8 md:gap-10">
+        
+        <div className="text-white max-w-xl">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold leading-tight">
+            Ready To Build Something Amazing
+          </h2>
+          <p className="text-white/80 mt-4 text-sm sm:text-lg">
+            Let’s bring your ideas to life with beautiful design and powerful technology.
+          </p>
+        </div>
+
+        <button className="bg-orange-500 hover:bg-orange-600 text-white px-6 py-3 rounded-full font-medium flex items-center gap-2">
+          Start a Project <Rocket className="w-5 h-5" />
+        </button>
+      </div>    
+    </section>
+  )
 }
+

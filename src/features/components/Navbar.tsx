@@ -353,7 +353,7 @@ const Navbar = () => {
           <Link href="/" className="text-white/80 hover:text-white">
             Home
           </Link>
-          <Link href="#" className="text-white/80 hover:text-white">
+          <Link href="/about" className="text-white/80 hover:text-white">
             About
           </Link>
           <Link href="/portfolio" className="text-white/80 hover:text-white">
@@ -374,7 +374,7 @@ const Navbar = () => {
             </button>
 
             {isProductsOpen && (
-              <div className="absolute left-1/2 top-full z-40 -translate-x-1/2 mt-6 w-[1300px] bg-white  shadow-2xl p-8">
+              <div className="absolute left-1/2 top-full z-40 -translate-x-1/2 mt-6 w-[1500px] bg-white  shadow-2xl p-8">
                 <div className="grid md:grid-cols-[280px_1fr] grid-cols-1 gap-6 md:gap-12">
                   {/* LEFT COLUMN */}
                   <div className="bg-orange-50 rounded-2xl p-4 md:p-6">
