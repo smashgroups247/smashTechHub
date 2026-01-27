@@ -304,9 +304,25 @@ function PlanCard({ plan }: { plan: PlanData }) {
             </ul>
 
             {/* CTA Button */}
-            <button className="w-full bg-[#F24F04] hover:bg-[#FF5722] text-white font-light py-3 px-6 rounded-full transition-all duration-300 hover:shadow-md active:scale-[0.98]">
-                {plan.buttonText}
-            </button>
+            <a href="mailto:hello@smashtechhub.com
+                ?subject=Business%20Website%20Plan%20Inquiry
+                &body=Hi,%0D%0A%0D%0A
+                I’m%20interested%20in%20the%20Business%20Website%20Plan,%20built%20for%20organizations%20that%20need%20performance,%20scale,%20and%20flexibility.%0D%0A%0D%0A
+                Plan%20highlights:%0D%0A
+                -5-page%20website%0D%0A
+                -Custom%20design%20%26%20development%0D%0A
+                -1%20free%20logo%0D%0A
+                -SEO%20optimization%0D%0A
+                -20-day%20delivery%20timeline%0D%0A
+                -24/7%20customer%20support%0D%0A%0D%0A
+                Price:%20₦650,000%0D%0A%0D%0A
+                Looking%20to%20discuss%20timelines,%20content,%20and%20next%20steps.%0D%0A%0D%0A
+                Best%20regards,"
+                >
+                <button className="w-full bg-[#F24F04] hover:bg-[#FF5722] text-white font-light py-3 px-6 rounded-full transition-all duration-300 hover:shadow-md active:scale-[0.98]">
+                    {plan.buttonText}
+                </button>
+            </a>
         </div>
     );
 }

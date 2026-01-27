@@ -209,23 +209,23 @@ const brands = [
 
 export const Footer = () => {
     return (
-        <footer className="bg-black text-white py-16 border-t rounded-t-[62px] border-white/10">
+        <footer className="bg-black text-white py-14 border-t rounded-t-[62px] border-white/10">
             <div className="max-w-7xl mx-auto px-6">
 
                 {/* TOP GRID */}
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-12 mb-16">
 
                     {/* Logo */}
-                    <div>
+                    <div className="lg:col-span-2">
                         <Link href="/" className="flex items-center">
-                            <div className="w-44 h-14 relative">
+                            <div className="w-50 h-14 relative">
                                 <Image src={assets.Logo} alt="SmashTechHub" fill className="object-contain" />
                             </div>
                         </Link>
 
-                        <p className="text-gray-400 text-base leading-relaxed mb-8">
-                            Empowering Your Projects.<br />
-                            Enhancing Your Success. Every Step<br />
+                        <p className="text-white/70 text-base font-light leading-relaxed mt-5 mb-8">
+                            Empowering Your Projects,<br />
+                            Enhancing Your Success, Every Step<br />
                             of the Way.
                         </p>
 
@@ -243,12 +243,12 @@ export const Footer = () => {
                     </div>
 
                     {/* Company */}
-                    <div>
-                        <h4 className="font-bold text-lg mb-6">Company</h4>
-                        <ul className="space-y-4 text-gray-400">
+                    <div className="lg:col-span-1">
+                        <h4 className="font-light text-white text-md mb-2">Company</h4>
+                        <ul className="space-y-2 text-white/70">
                             {companyLinks.map((link) => (
                                 <li key={link}>
-                                    <a href="#" className="hover:text-white transition">
+                                    <a href="#" className="hover:text-white text-base font-light transition">
                                         {link}
                                     </a>
                                 </li>
@@ -257,12 +257,12 @@ export const Footer = () => {
                     </div>
 
                     {/* Support */}
-                    <div>
-                        <h4 className="font-bold text-lg mb-6">Support</h4>
-                        <ul className="space-y-4 text-gray-400">
+                    <div className="lg:col-span-1">
+                        <h4 className="font-light text-white text-md mb-2">Support</h4>
+                        <ul className="space-y-2 text-white/70">
                             {supportLinks.map((link) => (
                                 <li key={link}>
-                                    <a href="#" className="hover:text-white transition">
+                                    <a href="#" className="hover:text-white text-base font-light transition">
                                         {link}
                                     </a>
                                 </li>
@@ -271,17 +271,17 @@ export const Footer = () => {
                     </div>
 
                     {/* Newsletter */}
-                    <div className="bg-white/4 w-full rounded-3xl p-6 border border-white/10">
-                        <h3 className="text-base font-bold mb-4">
+                    <div className="lg:col-span-2 bg-white/4 w-full rounded-3xl p-6 border border-white/8">
+                        <h3 className="text-base font-normal text-white mb-4">
                             Subscribe to our newsletter to get latest and juicy offers
                         </h3>
                         <div className="relative">
                             <input
                                 type="email"
                                 placeholder="Enter your email"
-                                className="w-full bg-white/12 border border-white/10 rounded-xl pl-5 pr-28 sm:pr-32 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-orange-500/50 focus:border-orange-500 transition-all"
+                                className="w-full bg-white/8 border border-white/10 rounded-xl pl-5 pr-28 sm:pr-32 py-7 text-base focus:outline-none focus:ring-2 focus:ring-orange-500/50 focus:border-orange-500 transition-all"
                             />
-                            <button className="absolute right-1.5 top-1/2 -translate-y-1/2 bg-orange-500 hover:bg-orange-600 rounded-full px-4 sm:px-6 py-2 text-sm font-semibold transition-colors">
+                            <button className="absolute right-1.5 top-1/2 -translate-y-1/2 bg-[#F24F04] hover:bg-orange-600 rounded-full px-4 sm:px-6 py-2 text-base font-light transition-colors">
                                 Subscribe
                             </button>
                         </div>
