@@ -2,14 +2,19 @@ import Link from "next/link"
 import Image from "next/image"
 import { assets } from "../../../assets/assets"
 
-const companyLinks = ["Home", "About", "Portfolio", "Pricing"]
+const companyLinks = [
+    { label: "Home", href: "/" },
+    { label: "About", href: "/about" },
+    { label: "Portfolio", href: "/portfolio" },
+    { label: "Pricing", href: "/pricing" },
+]
 const supportLinks = ["Blogs", "Contact", "Privacy Policy"]
 
 const socialLinks = [
-    { label: "f" },
-    { label: "in" },
-    { label: "📷" },
-    { label: "𝕏" }
+    { icon: assets.facebook_icon, alt: 'Facebook', href: '#' },
+    { icon: assets.linkedin_icon, alt: 'LinkedIn', href: '#' },
+    { icon: assets.instagram_icon, alt: 'Instagram', href: '#' },
+    { icon: assets.twitter_icon, alt: 'Twitter / X', href: '#' },
 ]
 
 const brands = [
@@ -36,23 +41,16 @@ const brands = [
     {
         name: "Qiimeet",
         icon: (
-            <div className="w-10 h-10 rounded-lg flex items-center justify-center">
+            <div className="justify-center">
                 <Image
-                    src={assets.qiimeet}
+                    src={assets.Qiimeet_logo}
                     alt=''
                     width={64}
                     height={64}
-                    className="object-cover w-full h-full rounded-full"
+                    className="object-cover w-full h-full "
                 />
             </div>
         ),
-        text: (
-            <>
-                <span className="text-white font-bold text-2xl">Q</span>
-                <span className="text-pink-500 font-bold text-2xl">ii</span>
-                <span className="text-white font-bold text-2xl">meet</span>
-            </>
-        )
     },
     {
         name: "Ridesmash",
@@ -233,10 +231,20 @@ export const Footer = () => {
                             {socialLinks.map((s, i) => (
                                 <a
                                     key={i}
-                                    href="#"
-                                    className="w-10 h-10 bg-white/10 rounded-lg flex items-center justify-center hover:bg-orange-500 transition"
+                                    href={s.href}
+                                    aria-label={s.alt}
+                                    className="group w-10 h-10 bg-white/10 rounded-lg
+                 flex items-center justify-center
+                 hover:bg-orange-500 transition"
                                 >
-                                    <span className="text-lg">{s.label}</span>
+                                    <Image
+                                        src={s.icon}
+                                        alt={s.alt}
+                                        width={18}
+                                        height={18}
+                                        className="object-contain transition-transform duration-300
+                   group-hover:scale-110"
+                                    />
                                 </a>
                             ))}
                         </div>
@@ -245,16 +253,21 @@ export const Footer = () => {
                     {/* Company */}
                     <div>
                         <h4 className="font-bold text-lg mb-6">Company</h4>
+
                         <ul className="space-y-4 text-gray-400">
                             {companyLinks.map((link) => (
-                                <li key={link}>
-                                    <a href="#" className="hover:text-white transition">
-                                        {link}
-                                    </a>
+                                <li key={link.label}>
+                                    <Link
+                                        href={link.href}
+                                        className="hover:text-white transition"
+                                    >
+                                        {link.label}
+                                    </Link>
                                 </li>
                             ))}
                         </ul>
                     </div>
+
 
                     {/* Support */}
                     <div>

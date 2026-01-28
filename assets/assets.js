@@ -63,6 +63,11 @@ import integrity from "./integrity.svg"
 import innovation from "./innovation.svg"
 import excellence from "./excellence.svg"
 import collaboration from "./collaboration.svg"
+import facebook_icon from "./facebook-icon.svg"
+import twitter_icon from "./twitter-icon.svg"
+import linkedin_icon from "./linkedin-icon.svg"
+import instagram_icon from "./instagram-icon.svg"
+import Qiimeet_logo from "./Qiimeet-logo.svg"
 
 
 
@@ -98,5 +103,5 @@ export const assets = {
     smashMail_logo,smashApartment,preview_img_1,preview_img_2,preview_img_3,preview_img_4,smashRemit,smashchat_banner,ridesmash_banner,
     Qiimeet_banner,smashwise_banner,smashfood_banner,smashremit_banner,paradise_banner,PSF_banner,smashmail_banner,smashtravels_banner,
     smashinvoice_banner,smashapartments_banner,playstore_icon,appstore_icon,handshake,twirlyArrow,ourJourney_img,pm_img,collaboration,
-    creativity,integrity,innovation,excellence
+    creativity,integrity,innovation,excellence,facebook_icon,twitter_icon,linkedin_icon,instagram_icon,Qiimeet_logo
 }

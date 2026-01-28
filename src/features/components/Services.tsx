@@ -38,8 +38,8 @@ const Services = () => {
         {/* Header */}
         <div className="mb-12 sm:mb-16 relative">
           <div className="absolute -top-9 left-[550px] bg-[#D2F801] text-black text-sm font-semibold px-4 py-1.5 rounded-full rotate-12">
-              Services
-            </div>
+            Services
+          </div>
           <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-4">
             What We're Good At
           </h2>
@@ -87,25 +87,41 @@ const Services = () => {
                 </div>
 
                 {/* Preview */}
-                <div className="absolute opacity-0 scale-90 group-hover:opacity-100 group-hover:scale-100 transition-all duration-300 ease-out pointer-events-none -left-32 -top-24 z-20">
-                  <div className="relative w-56 h-36 overflow-hidden rounded-2xl shadow-2xl group-hover:-rotate-12 group-hover:-translate-x-2 group-hover:translate-y-1">
+                {/* Preview */}
+                <div className="absolute 
+  -left-32 -top-24 
+  z-20
+  opacity-0 scale-90
+  group-hover:opacity-100 group-hover:scale-100
+  transition-all duration-300 ease-out
+  pointer-events-none
+">
+                  <div
+                    className="
+      relative
+      w-56 h-36
+      overflow-hidden
+      rounded-2xl
+      shadow-2xl
+      transform-gpu
+      origin-center
+      transition-transform
+      duration-300
+      ease-out
+      group-hover:-rotate-12
+      group-hover:-translate-x-2
+      group-hover:translate-y-1
+    "
+                  >
                     <Image
                       src={service.preview}
                       alt={service.title}
                       fill
-                      className="
-                        object-cover
-                        transform
-                        transition-transform
-                        duration-300
-                        ease-out
-                        group-hover:-rotate-12
-                        group-hover:-translate-x-2
-                        group-hover:translate-y-1 w-56 h-36 overflow-hidden rounded-2xl
-                      "
+                      className="object-cover"
                     />
                   </div>
                 </div>
+
               </div>
 
             </div>

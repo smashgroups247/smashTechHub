@@ -21,7 +21,6 @@ export default function App() {
             <Projects />
             <Process />
             <Testimonials />
-            <Footer />
         </div>
     );
 }
