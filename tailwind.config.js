@@ -23,6 +23,7 @@ export default {
         paid: "#34C759",
         navyblue: "#00114E",
         admininput: "hsba(240, 3%, 12%, 0.12)",
+        pillbg: "rgba(254, 213, 195, 0.2)",
       },
       boxShadow: {
         sm: "0px 0px 2px rgba(0, 0, 0, 0.05)",

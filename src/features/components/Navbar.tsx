@@ -116,14 +116,14 @@ const Navbar = () => {
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-black border-b border-white/10">
-      <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between relative">
+      <div className="max-w-7xl mx-auto px-6 py-4 mt-9 flex items-center justify-between relative">
         {/* Logo */}
         <Link href="/" className="relative w-40 h-12">
           <Image src={assets.Logo} alt="Logo" fill className="object-contain" />
         </Link>
 
         {/* Desktop Menu */}
-        <div className="hidden md:flex items-center gap-8 text-sm">
+        <div className="hidden md:flex items-center gap-8 text-md">
           <Link href="/" className="text-white/80 hover:text-white">
             Home
           </Link>
@@ -204,7 +204,7 @@ const Navbar = () => {
             )}
           </div>
 
-          <Link href="#" className="text-white/80 hover:text-white">
+          <Link href="/pricing" className="text-white/80 hover:text-white">
             Pricing
           </Link>
           <Link href="/contact" className="text-white/80 hover:text-white">
@@ -213,7 +213,7 @@ const Navbar = () => {
         </div>
 
         {/* CTA */}
-        <button className="hidden md:flex items-center gap-2 bg-orange-500 hover:bg-orange-600 text-white px-6 py-3 rounded-full">
+        <button className="hidden md:flex items-center gap-2 bg-[#F24F04] hover:bg-orange-600 text-white px-6 py-4 rounded-full">
           Start a Project <Rocket className="w-4 h-4" />
         </button>
 

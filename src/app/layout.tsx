@@ -8,8 +8,8 @@ import { Footer } from '@/features/components/Footer';
 const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
-  title: 'Next.js Boilerplate',
-  description: 'SSR boilerplate',
+  title: 'SmashTechHub',
+  description: 'We Design & Build Digital Experiences That Move Brands Forward',
 };
 
 export default function RootLayout({
