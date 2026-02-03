@@ -81,8 +81,8 @@ export default function Process() {
         <section ref={sectionRef} className="py-24 bg-[#FFF8F5] relative">
             <div className="max-w-6xl mx-auto px-6 relative">
                 <div className="absolute -top-10 left-0 bg-[#A2FF76] text-black text-sm font-semibold px-4 py-1.5 rounded-full -rotate-12">
-              Process
-            </div>
+                    Process
+                </div>
                 <h2 className="text-5xl font-bold mb-20">How We Work</h2>
 
                 <div className="relative">
@@ -92,7 +92,7 @@ export default function Process() {
                     {/* Animated orange line */}
                     <div
                         className="absolute left-1/2 top-0 w-[6px] bg-orange-500 -translate-x-1/2 hidden md:block transition-all duration-75"
-                        style={{ height: `${progress}%` }}  
+                        style={{ height: `${progress}%` }}
                     />
 
                     <div className="space-y-32">

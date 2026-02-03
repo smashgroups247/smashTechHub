@@ -37,9 +37,9 @@ const Services = () => {
 
         {/* Header */}
         <div className="mb-12 sm:mb-16 relative">
-          <div className="absolute -top-9 left-[550px] bg-[#D2F801] text-black text-sm font-semibold px-4 py-1.5 rounded-full rotate-12">
+          <span className="absolute flex -top-8 right-[150px] bg-[#D2F801] text-[#393838] text-sm font-normal px-3 py-1 rounded-full rotate-17">
             Services
-          </div>
+          </span>
           <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-4">
             What We're Good At
           </h2>
