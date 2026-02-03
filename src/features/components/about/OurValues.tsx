@@ -58,7 +58,7 @@ function OurValues() {
         <div className="absolute bottom-20 left-20 text-white text-6xl">⭐</div>
       </div>
 
-      <div className="max-w-7xl mx-auto px-6 relative z-10">
+      <div className="max-w-screen mx-auto px-6 relative z-10">
         {/* Header */}
         <div className="text-left mb-16 relative">
           <h2 className="text-5xl md:text-6xl font-bold text-white mb-4">

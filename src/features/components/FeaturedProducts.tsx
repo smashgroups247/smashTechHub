@@ -28,6 +28,7 @@ import {
   PhoneCall,
 } from "lucide-react";
 import { assets } from "../../../assets/assets";
+import Link from "next/link";
 
 const FeaturedProducts = () => {
   const products = [
@@ -96,9 +97,12 @@ const FeaturedProducts = () => {
             </p>
           </div>
           <div className="flex-shrink-0">
-            <button className="hidden md:flex items-center gap-2 text-orange-500 hover:text-orange-600 font-semibold">
+            <Link
+              href="/portfolio"
+              className="hidden md:flex items-center gap-2 text-orange-500 hover:text-orange-600 font-semibold transition"
+            >
               View all <ArrowRight className="w-5 h-5" />
-            </button>
+            </Link>
           </div>
         </div>
 
@@ -133,10 +137,12 @@ const FeaturedProducts = () => {
                 })}
               </div>
 
-              {/* Buy Button */}
-              <button className="w-full bg-orange-500 hover:bg-orange-600 text-white py-3 rounded-full font-semibold transition text-base sm:text-lg">
-                Buy Now
-              </button>
+              <Link
+                href="/checkout"
+                className="block w-full bg-orange-500 hover:bg-orange-600 text-white py-3 rounded-full font-semibold transition text-base sm:text-lg text-center"
+              >
+                View
+              </Link>
             </div>
           ))}
         </div>

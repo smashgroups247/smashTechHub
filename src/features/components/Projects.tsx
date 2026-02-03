@@ -2,6 +2,7 @@ import React from "react";
 import { ArrowRight } from "lucide-react";
 import Image from "next/image";
 import { assets } from "../../../assets/assets";
+import Link from "next/link";
 
 const Projects = () => {
   return (
@@ -66,9 +67,12 @@ const Projects = () => {
                 A communication & social commerce app for chatting, calling and
                 buying products.
               </p>
-              <button className="mt-3 sm:mt-4 text-orange-500 flex items-center gap-2 font-semibold">
+              <Link
+                href="/portfolio"
+                className="mt-3 sm:mt-4 text-orange-500 flex items-center gap-2 font-semibold hover:text-orange-600 transition"
+              >
                 View <ArrowRight className="w-4 sm:w-5 h-4 sm:h-5" />
-              </button>
+              </Link>
             </div>
 
           </div>
@@ -123,10 +127,13 @@ const Projects = () => {
 
         {/* CTA */}
         <div className="flex justify-center lg:justify-end mt-8">
-          <button className="bg-white/5 hover:bg-white/10 backdrop-blur-sm border border-white/20 text-white px-8 sm:px-10 py-3 sm:py-4 rounded-full font-semibold flex items-center gap-3">
+          <Link
+            href="/portfolio"
+            className="bg-white/5 hover:bg-white/10 backdrop-blur-sm border border-white/20 text-white px-8 sm:px-10 py-3 sm:py-4 rounded-full font-semibold flex items-center gap-3 transition"
+          >
             View Portfolio
             <ArrowRight className="w-4 sm:w-5 h-4 sm:h-5" />
-          </button>
+          </Link>
         </div>
 
       </div>

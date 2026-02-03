@@ -85,7 +85,7 @@ export function Team() {
 
     return (
         <section className="py-20 bg-[#FFF8F5]">
-            <div className="max-w-7xl mx-auto px-6">
+            <div className="max-w-screen mx-auto px-6">
                 {/* Header */}
                 <div className="mb-16">
                     <div className='relative'>

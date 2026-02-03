@@ -116,7 +116,7 @@ const Navbar = () => {
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-black border-b border-white/10">
-      <div className="max-w-7xl mx-auto px-6 py-4 mt-9 flex items-center justify-between relative">
+      <div className="max-w-screen mx-auto px-6 py-4 mt-9 flex items-center justify-between relative">
         {/* Logo */}
         <Link href="/" className="relative w-40 h-12">
           <Image src={assets.Logo} alt="Logo" fill className="object-contain" />
@@ -148,7 +148,7 @@ const Navbar = () => {
             </button>
 
             {isProductsOpen && (
-              <div className=" hidden md:block absolute left-1/2 top-full z-40 -translate-x-1/2 mt-6 max-w-7xl w-[95vw] bg-white  shadow-2xl p-8">
+              <div className=" hidden md:block absolute  top-full z-40 -translate-x-1/2 mt-6 max-w-screen w-[95vw] bg-white  shadow-2xl p-8">
                 <div className="grid md:grid-cols-[280px_1fr] grid-cols-1 gap-6 md:gap-12">
                   {/* LEFT COLUMN */}
                   <div className="bg-orange-50 rounded-2xl p-4 md:p-6">
@@ -213,9 +213,12 @@ const Navbar = () => {
         </div>
 
         {/* CTA */}
-        <button className="hidden md:flex items-center gap-2 bg-[#F24F04] hover:bg-orange-600 text-white px-6 py-4 rounded-full">
+        <Link
+          href="/contact"
+          className="hidden md:flex items-center gap-2 bg-[#F24F04] hover:bg-orange-600 text-white px-6 py-4 rounded-full font-semibold transition"
+        >
           Start a Project <Rocket className="w-4 h-4" />
-        </button>
+        </Link>
 
         {/* Mobile Toggle */}
         <button

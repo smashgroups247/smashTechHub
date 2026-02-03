@@ -6,6 +6,7 @@ import { Rocket, ArrowRight } from "lucide-react";
 import { assets } from "../../../assets/assets";
 import History from "../../../assets/History.svg";
 import History2 from "../../../assets/History2.svg";
+import Link from "next/link";
 
 const Hero = () => {
   return (
@@ -62,12 +63,21 @@ const Hero = () => {
 
           {/* Buttons */}
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-8 md:mb-12">
-            <button className="bg-orange-500 hover:bg-orange-600 text-white px-6 sm:px-8 py-3 sm:py-4 rounded-full font-semibold transition flex items-center gap-2 text-lg shadow-lg shadow-orange-500/30 w-full sm:w-auto">
+            {/* Start a Project */}
+            <Link
+              href="/contact"
+              className="bg-orange-500 hover:bg-orange-600 text-white px-6 sm:px-8 py-3 sm:py-4 rounded-full font-semibold transition flex items-center justify-center gap-2 text-lg shadow-lg shadow-orange-500/30 w-full sm:w-auto"
+            >
               Start a Project <Rocket className="w-5 h-5" />
-            </button>
-            <button className="bg-white/5 hover:bg-white/10 backdrop-blur-sm border border-white/20 text-white px-6 sm:px-8 py-3 sm:py-4 rounded-full font-semibold transition flex items-center gap-2 text-lg w-full sm:w-auto">
+            </Link>
+
+            {/* View Portfolio */}
+            <Link
+              href="/portfolio"
+              className="bg-white/5 hover:bg-white/10 backdrop-blur-sm border border-white/20 text-white px-6 sm:px-8 py-3 sm:py-4 rounded-full font-semibold transition flex items-center justify-center gap-2 text-lg w-full sm:w-auto"
+            >
               View Portfolio <ArrowRight className="w-5 h-5" />
-            </button>
+            </Link>
           </div>
         </div>
 

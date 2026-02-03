@@ -208,7 +208,7 @@ const brands = [
 export const Footer = () => {
     return (
         <footer className="bg-black text-white py-14 border-t rounded-t-[62px] border-white/10">
-            <div className="max-w-7xl mx-auto px-6">
+            <div className="max-w-screen mx-auto px-6">
 
                 {/* TOP GRID */}
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-12 mb-16">

@@ -20,7 +20,7 @@ export function Stats() {
 
   return (
     <section className="py-20 bg-[#FFF8F5]">
-      <div className="max-w-7xl mx-auto px-6">
+      <div className="max-w-screen mx-auto px-6">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12 lg:gap-16">
           {stats.map((stat, index) => (
             <div key={index} className="space-y-4">
