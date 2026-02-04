@@ -33,11 +33,11 @@ const Services = () => {
 
   return (
     <section className="py-16 sm:py-20 lg:py-24 bg-[#FFF8F5]">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-screen mx-auto px-4 sm:px-6 lg:px-8">
 
         {/* Header */}
         <div className="mb-12 sm:mb-16 relative">
-          <span className="absolute flex -top-8 right-[150px] bg-[#D2F801] text-[#393838] text-sm font-normal px-3 py-1 rounded-full rotate-17">
+          <span className="absolute flex -top-8 right-[600px] bg-[#D2F801] text-[#393838] text-sm font-normal px-3 py-1 rounded-full rotate-17">
             Services
           </span>
           <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-4">

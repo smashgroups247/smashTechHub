@@ -9,16 +9,19 @@ import { assets } from "../../../../assets/assets"
 import Link from "next/link"
 
 type Project = {
-    id: number
-    name: string
-    overview: string
-    tags: string[]
-    duration: string
-    image: any
-    subtitle?: string
-    headline?: string
-    steps?: string[]
-    features?: string[]
+  id: number
+  name: string
+  overview: string
+  tags: string[]
+  duration: string
+  image: any
+  subtitle?: string
+  headline?: string
+  steps?: string[]
+  features?: string[]
+  appStoreUrl?: string
+  playStoreUrl?: string
+  websiteUrl?: string
 }
 
 const projectNameColors: Record<string, string> = {
@@ -37,192 +40,210 @@ const projectNameColors: Record<string, string> = {
 }
 
 const mobileProjects: Project[] = [
-    {
-        id: 1,
-        name: "Ridesmash",
-        subtitle: "Ride in Style · Ride in Comfort",
-        overview:
-            "RideSmash is a modern ride-hailing platform designed to offer fast, safe, and transparent transportation for everyday commuters. The project objective was to create an intuitive mobile experience that simplifies booking rides, tracking drivers, and handling payments all while ensuring user trust and reliability.",
-        tags: ["Mobile App", "UI/UX Design", "Development"],
-        duration: "10 months",
-        image: assets.ridesmash_banner,
-    },
-    {
-        id: 2,
-        name: "Qiimeet",
-        headline: "Ready to Connect?",
-        overview:
-            "Qiimeet is a modern dating app designed to help individuals form meaningful connections through authentic conversations and compatibility-based matching. The goal of the project was to create a seamless user experience that feels safe, personal, and intuitive—encouraging users to move beyond swipes and engage in deeper interactions.",
-        tags: ["Mobile App", "UI/UX Design", "Development"],
-        duration: "4 months",
-        image: assets.Qiimeet_banner,
-    },
-    {
-        id: 3,
-        name: "SmashChat",
-        overview:
-            "SmashChat is a multi-functional communication and social commerce app that allows users to chat, call, and connect with friends and family, while also enabling them to buy products, sell as vendors, and place ads within an integrated marketplace. The goal was to design a seamless experience that brings messaging, shopping, and selling together in one intelligent platform.",
-        tags: ["Mobile App", "UI/UX Design", "Development"],
-        duration: "6 months",
-        image: assets.smashchat_banner,
-    },
-    {
-        id: 4,
-        name: "SmashFood",
-        overview:
-            "SmashFood is a hybrid food-tech platform that allows users to order meals from restaurants and book private chefs for home dining experiences. The goal of this project was to design an intuitive mobile experience that combines everyday food delivery convenience with premium, on-demand private chef services.",
-        tags: ["Mobile App", "UI/UX Design", "Development"],
-        duration: "6 months",
-        image: assets.smashfood_banner,
-    },
-    {
-        id: 5,
-        name: "Smashwise",
-        overview:
-            "SmashWise is a multi-category e-commerce app that allows users to order items across a wide range of categories—including electronics, groceries, fashion, home essentials, beauty products, and more. The project goal was to design an intuitive, fast, and scalable shopping experience that helps users find anything they need in one place.",
-        tags: ["Mobile App", "UI/UX Design", "Development"],
-        duration: "4 months",
-        image: assets.smashwise_banner,
-    },
-    {
-        id: 6,
-        name: "SmashRemit",
-        overview:
-            "SmashRemit is a modern mobile fintech solution that enables users to send money across borders with ease, speed, and transparency. In addition to global remittances, the app provides users with secure virtual cards for online payments, creating an all-in-one financial tool for everyday transactions and international needs.",
-        tags: ["Mobile App", "UI/UX Design", "Development"],
-        duration: "8 months",
-        image: assets.smashremit_banner,
-    },
+  {
+    id: 1,
+    name: "Ridesmash",
+    subtitle: "Ride in Style · Ride in Comfort",
+    overview:
+      "RideSmash is a modern ride-hailing platform designed to offer fast, safe, and transparent transportation for everyday commuters. The project objective was to create an intuitive mobile experience that simplifies booking rides, tracking drivers, and handling payments all while ensuring user trust and reliability.",
+    tags: ["Mobile App", "UI/UX Design", "Development"],
+    duration: "10 months",
+    image: assets.ridesmash_banner,
+    appStoreUrl: "https://apps.apple.com/app/ridesmash",
+    playStoreUrl: "https://play.google.com/store/apps/details?id=com.philzcodes.RideSmash&hl=en&pli=1",
+  },
+  {
+    id: 2,
+    name: "Qiimeet",
+    headline: "Ready to Connect?",
+    overview:
+      "Qiimeet is a modern dating app designed to help individuals form meaningful connections through authentic conversations and compatibility-based matching. The goal of the project was to create a seamless user experience that feels safe, personal, and intuitive—encouraging users to move beyond swipes and engage in deeper interactions.",
+    tags: ["Mobile App", "UI/UX Design", "Development"],
+    duration: "4 months",
+    image: assets.Qiimeet_banner,
+    appStoreUrl: "https://apps.apple.com/app/qiimeet",
+    playStoreUrl: "https://play.google.com/store/apps/details?id=qiimeet",
+  },
+  {
+    id: 3,
+    name: "SmashChat",
+    overview:
+      "SmashChat is a multi-functional communication and social commerce app that allows users to chat, call, and connect with friends and family, while also enabling them to buy products, sell as vendors, and place ads within an integrated marketplace. The goal was to design a seamless experience that brings messaging, shopping, and selling together in one intelligent platform.",
+    tags: ["Mobile App", "UI/UX Design", "Development"],
+    duration: "6 months",
+    image: assets.smashchat_banner,
+    appStoreUrl: "#",
+    playStoreUrl: "#"
+  },
+  {
+    id: 4,
+    name: "SmashFood",
+    overview:
+      "SmashFood is a hybrid food-tech platform that allows users to order meals from restaurants and book private chefs for home dining experiences. The goal of this project was to design an intuitive mobile experience that combines everyday food delivery convenience with premium, on-demand private chef services.",
+    tags: ["Mobile App", "UI/UX Design", "Development"],
+    duration: "6 months",
+    image: assets.smashfood_banner,
+    appStoreUrl: "#",
+    playStoreUrl: "#"
+  },
+  {
+    id: 5,
+    name: "Smashwise",
+    overview:
+      "SmashWise is a multi-category e-commerce app that allows users to order items across a wide range of categories—including electronics, groceries, fashion, home essentials, beauty products, and more. The project goal was to design an intuitive, fast, and scalable shopping experience that helps users find anything they need in one place.",
+    tags: ["Mobile App", "UI/UX Design", "Development"],
+    duration: "4 months",
+    image: assets.smashwise_banner,
+    appStoreUrl: "#",
+    playStoreUrl: "#"
+  },
+  {
+    id: 6,
+    name: "SmashRemit",
+    overview:
+      "SmashRemit is a modern mobile fintech solution that enables users to send money across borders with ease, speed, and transparency. In addition to global remittances, the app provides users with secure virtual cards for online payments, creating an all-in-one financial tool for everyday transactions and international needs.",
+    tags: ["Mobile App", "UI/UX Design", "Development"],
+    duration: "8 months",
+    image: assets.smashremit_banner,
+    appStoreUrl: "#",
+    playStoreUrl: "#"
+  },
 ]
 
 const webProjects: Project[] = [
-    {
-        id: 1,
-        name: "Smash Apartment",
-        overview:
-            "SmashApartment is a real estate web platform for renting and buying verified properties with ease.",
-        tags: ["Web App", "UI/UX Design", "Development"],
-        duration: "10 months",
-        image: assets.smashapartments_banner,
-    },
-    {
-        id: 2,
-        name: "Paradise Estate",
-        overview:
-            "Paradise Estate is a comprehensive digital solution designed for gated communities and estate administrators. It provides estate owners with tools to manage residents, generate digital visitor gate passes, and handle estate dues, while giving residents a mobile app to pay bills, track payments, and generate visitor codes instantly. The goal was to create a secure, transparent, and user-friendly system for streamlined estate operations.",
-        tags: ["Web App", "UI/UX Design", "Development"],
-        duration: "10 months",
-        image: assets.paradise_banner,
-    },
-    {
-        id: 3,
-        name: "Paul Smith Initiatives",
-        overview:
-            "PaulSmithInitiatives is a web-based fundraising platform dedicated to supporting less privileged individuals and communities. The platform enables donors to make secure contributions, learn about ongoing humanitarian projects, and track the impact of their donations. The goal was to create a digital solution that inspires trust, transparency, and ease of giving.",
-        tags: ["Web App", "UI/UX Design", "Development"],
-        duration: "10 months",
-        image: assets.PSF_banner,
-    },
-    {
-        id: 4,
-        name: "SmashInvoice",
-        overview:
-            "SmashInvoice is a web-based invoicing solution designed to help freelancers, small businesses, and service providers create, manage, and track invoices efficiently. The platform streamlines financial workflows, reduces manual paperwork, and ensures users get paid faster through an intuitive, professional interface.",
-        tags: ["Web App", "UI/UX Design", "Development"],
-        duration: "10 months",
-        image: assets.smashinvoice_banner,
-    },
-    {
-        id: 5,
-        name: "Smash Mail",
-        overview:
-            "SmashMail is a robust web-based email management platform designed to help organizations streamline internal and external communication. It provides tools for creating, scheduling, and monitoring email campaigns, newsletters, and transactional messages — all from a centralized, user-friendly dashboard.",
-        tags: ["Web App", "UI/UX Design", "Development"],
-        duration: "10 months",
-        image: assets.smashmail_banner,
-    },
-    {
-        id: 6,
-        name: "Smash Travels",
-        overview:
-            "SmashTravels is a modern travel website that allows users to book flight tickets, plan international travel, and access verified information about visas, documentation, and travel requirements. The goal of the project was to create a smooth, trustworthy, and informative travel experience that reduces the stress of trip planning.",
-        tags: ["Web App", "UI/UX Design", "Development"],
-        duration: "10 months",
-        image: assets.smashtravels_banner,
-    },
+  {
+    id: 1,
+    name: "Smash Apartment",
+    overview:
+      "SmashApartment is a real estate web platform for renting and buying verified properties with ease.",
+    tags: ["Web App", "UI/UX Design", "Development"],
+    duration: "10 months",
+    image: assets.smashapartments_banner,
+    websiteUrl: "https://smashapartment.com",
+  },
+  {
+    id: 2,
+    name: "Paradise Estate",
+    overview:
+      "Paradise Estate is a comprehensive digital solution designed for gated communities and estate administrators. It provides estate owners with tools to manage residents, generate digital visitor gate passes, and handle estate dues, while giving residents a mobile app to pay bills, track payments, and generate visitor codes instantly. The goal was to create a secure, transparent, and user-friendly system for streamlined estate operations.",
+    tags: ["Web App", "UI/UX Design", "Development"],
+    duration: "10 months",
+    image: assets.paradise_banner,
+    websiteUrl: "#",
+  },
+  {
+    id: 3,
+    name: "Paul Smith Initiatives",
+    overview:
+      "PaulSmithInitiatives is a web-based fundraising platform dedicated to supporting less privileged individuals and communities. The platform enables donors to make secure contributions, learn about ongoing humanitarian projects, and track the impact of their donations. The goal was to create a digital solution that inspires trust, transparency, and ease of giving.",
+    tags: ["Web App", "UI/UX Design", "Development"],
+    duration: "10 months",
+    image: assets.PSF_banner,
+    websiteUrl: "https://www.paulsmithinitiatives.com/",
+  },
+  {
+    id: 4,
+    name: "SmashInvoice",
+    overview:
+      "SmashInvoice is a web-based invoicing solution designed to help freelancers, small businesses, and service providers create, manage, and track invoices efficiently. The platform streamlines financial workflows, reduces manual paperwork, and ensures users get paid faster through an intuitive, professional interface.",
+    tags: ["Web App", "UI/UX Design", "Development"],
+    duration: "10 months",
+    image: assets.smashinvoice_banner,
+    websiteUrl: "https://smashinvoices.com/",
+  },
+  {
+    id: 5,
+    name: "Smash Mail",
+    overview:
+      "SmashMail is a robust web-based email management platform designed to help organizations streamline internal and external communication. It provides tools for creating, scheduling, and monitoring email campaigns, newsletters, and transactional messages — all from a centralized, user-friendly dashboard.",
+    tags: ["Web App", "UI/UX Design", "Development"],
+    duration: "10 months",
+    image: assets.smashmail_banner,
+    websiteUrl: "https://fromsmash.com/",
+  },
+  {
+    id: 6,
+    name: "Smash Travels",
+    overview:
+      "SmashTravels is a modern travel website that allows users to book flight tickets, plan international travel, and access verified information about visas, documentation, and travel requirements. The goal of the project was to create a smooth, trustworthy, and informative travel experience that reduces the stress of trip planning.",
+    tags: ["Web App", "UI/UX Design", "Development"],
+    duration: "10 months",
+    image: assets.smashtravels_banner,
+    websiteUrl: "https://smashtravels.com/",
+  },
 
 ]
 
 const brandingProjects: Project[] = [
-    {
-        id: 1,
-        name: "Ridesmash",
-        subtitle: "Ride in Style · Ride in Comfort",
-        overview:
-            "RideSmash is a modern ride-hailing platform designed to offer fast, safe, and transparent transportation for everyday commuters. The project objective was to create an intuitive mobile experience that simplifies booking rides, tracking drivers, and handling payments all while ensuring user trust and reliability.",
-        tags: ["Mobile App", "UI/UX Design", "Development"],
-        duration: "10 months",
-        image: assets.ridesmash_banner,
-    },
-    {
-        id: 2,
-        name: "Qiimeet",
-        headline: "Ready to Connect?",
-        overview:
-            "Qiimeet is a modern dating app designed to help individuals form meaningful connections through authentic conversations and compatibility-based matching. The goal of the project was to create a seamless user experience that feels safe, personal, and intuitive—encouraging users to move beyond swipes and engage in deeper interactions.",
-        tags: ["Mobile App", "UI/UX Design", "Development"],
-        duration: "4 months",
-        image: assets.Qiimeet_banner,
-    },
-    {
-        id: 3,
-        name: "SmashChat",
-        overview:
-            "SmashChat is a multi-functional communication and social commerce app that allows users to chat, call, and connect with friends and family, while also enabling them to buy products, sell as vendors, and place ads within an integrated marketplace. The goal was to design a seamless experience that brings messaging, shopping, and selling together in one intelligent platform.",
-        tags: ["Mobile App", "UI/UX Design", "Development"],
-        duration: "6 months",
-        image: assets.smashchat_banner,
-    },
-    {
-        id: 4,
-        name: "SmashFood",
-        overview:
-            "SmashFood is a hybrid food-tech platform that allows users to order meals from restaurants and book private chefs for home dining experiences. The goal of this project was to design an intuitive mobile experience that combines everyday food delivery convenience with premium, on-demand private chef services.",
-        tags: ["Mobile App", "UI/UX Design", "Development"],
-        duration: "6 months",
-        image: assets.smashfood_banner,
-    },
-    {
-        id: 5,
-        name: "Smashwise",
-        overview:
-            "SmashWise is a multi-category e-commerce app that allows users to order items across a wide range of categories—including electronics, groceries, fashion, home essentials, beauty products, and more. The project goal was to design an intuitive, fast, and scalable shopping experience that helps users find anything they need in one place.",
-        tags: ["Mobile App", "UI/UX Design", "Development"],
-        duration: "4 months",
-        image: assets.smashwise_banner,
-    },
+  {
+    id: 1,
+    name: "Ridesmash",
+    subtitle: "Ride in Style · Ride in Comfort",
+    overview:
+      "RideSmash is a modern ride-hailing platform designed to offer fast, safe, and transparent transportation for everyday commuters. The project objective was to create an intuitive mobile experience that simplifies booking rides, tracking drivers, and handling payments all while ensuring user trust and reliability.",
+    tags: ["Mobile App", "UI/UX Design", "Development"],
+    duration: "10 months",
+    image: assets.ridesmash_banner,
+  },
+  {
+    id: 2,
+    name: "Qiimeet",
+    headline: "Ready to Connect?",
+    overview:
+      "Qiimeet is a modern dating app designed to help individuals form meaningful connections through authentic conversations and compatibility-based matching. The goal of the project was to create a seamless user experience that feels safe, personal, and intuitive—encouraging users to move beyond swipes and engage in deeper interactions.",
+    tags: ["Mobile App", "UI/UX Design", "Development"],
+    duration: "4 months",
+    image: assets.Qiimeet_banner,
+  },
+  {
+    id: 3,
+    name: "SmashChat",
+    overview:
+      "SmashChat is a multi-functional communication and social commerce app that allows users to chat, call, and connect with friends and family, while also enabling them to buy products, sell as vendors, and place ads within an integrated marketplace. The goal was to design a seamless experience that brings messaging, shopping, and selling together in one intelligent platform.",
+    tags: ["Mobile App", "UI/UX Design", "Development"],
+    duration: "6 months",
+    image: assets.smashchat_banner,
+  },
+  {
+    id: 4,
+    name: "SmashFood",
+    overview:
+      "SmashFood is a hybrid food-tech platform that allows users to order meals from restaurants and book private chefs for home dining experiences. The goal of this project was to design an intuitive mobile experience that combines everyday food delivery convenience with premium, on-demand private chef services.",
+    tags: ["Mobile App", "UI/UX Design", "Development"],
+    duration: "6 months",
+    image: assets.smashfood_banner,
+  },
+  {
+    id: 5,
+    name: "Smashwise",
+    overview:
+      "SmashWise is a multi-category e-commerce app that allows users to order items across a wide range of categories—including electronics, groceries, fashion, home essentials, beauty products, and more. The project goal was to design an intuitive, fast, and scalable shopping experience that helps users find anything they need in one place.",
+    tags: ["Mobile App", "UI/UX Design", "Development"],
+    duration: "4 months",
+    image: assets.smashwise_banner,
+  },
 ]
 
 const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-        opacity: 1,
-        transition: { staggerChildren: 0.15 },
-    },
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: { staggerChildren: 0.15 },
+  },
 }
 
 const cardVariants = {
-    hidden: { opacity: 0, y: 40 },
-    visible: {
-        opacity: 1,
-        y: 0,
-        transition: { duration: 0.5, ease: "easeOut" as const },
-    },
-    exit: {
-        opacity: 0,
-        y: -20,
-        transition: { duration: 0.3 },
-    },
+  hidden: { opacity: 0, y: 40 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.5, ease: "easeOut" as const },
+  },
+  exit: {
+    opacity: 0,
+    y: -20,
+    transition: { duration: 0.3 },
+  },
 }
 
 export default function ProjectCards() {
@@ -240,8 +261,7 @@ export default function ProjectCards() {
 
   return (
     <section className="bg-[#FFF8F5] py-16 sm:py-20 md:py-24">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6">
-
+      <div className="max-w-screen mx-auto px-4 sm:px-6">
         <header className="mb-12 sm:mb-16">
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900">
             Take a Look At Our Work
@@ -258,11 +278,10 @@ export default function ProjectCards() {
                 key={tag}
                 onClick={() => setActiveTag(tag as any)}
                 className={`px-5 py-2 rounded-full text-sm font-medium transition
-                ${
-                  activeTag === tag
+                  ${activeTag === tag
                     ? "bg-orange-100 text-orange-700"
                     : "bg-white text-[#393838] hover:bg-orange-200"
-                }`}
+                  }`}
               >
                 {tag}
               </button>
@@ -303,10 +322,10 @@ export default function ProjectCards() {
                   <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-3">
                     <h3
                       className={`
-                        font-bold
-                        text-xl sm:text-2xl md:text-3xl
-                        ${projectNameColors[p.name] ?? "text-gray-900"}
-                      `}
+                          font-bold
+                          text-xl sm:text-2xl md:text-3xl
+                          ${projectNameColors[p.name] ?? "text-gray-900"}
+                        `}
                     >
                       {p.name}
                     </h3>
@@ -340,41 +359,88 @@ export default function ProjectCards() {
                     </div>
 
                     {/* LINKS */}
-                    {activeTag === "Web" && (
+                    {activeTag === "Web" && p.websiteUrl && (
                       <Link
-                        href="#"
-                        className="text-orange-600 font-medium flex items-center gap-2 hover:text-orange-700"
+                        href={p.websiteUrl}
+                        target="_blank"
+                        className="inline-flex items-center gap-2 px-4 py-2 rounded-full
+               bg-orange-100 text-orange-700 font-medium
+               hover:bg-orange-200 transition"
                       >
                         Visit website
                         <ArrowUpRight className="w-4 h-4" />
                       </Link>
                     )}
+
+                    {activeTag === "Mobile" && (p.appStoreUrl || p.playStoreUrl) && (
+                      <div className="flex gap-3 flex-wrap">
+                        {p.appStoreUrl && (
+                          <Link
+                            href={p.appStoreUrl}
+                            target="_blank"
+                            className="block w-[120px] h-[44px]"
+                          >
+                            <Image
+                              src={assets.appstore_icon}
+                              alt="Download on the App Store"
+                              width={140}
+                              height={44}
+                              className="object-contain"
+                            />
+                          </Link>
+                        )}
+
+                        {p.playStoreUrl && (
+                          <Link
+                            href={p.playStoreUrl}
+                            target="_blank"
+                            className="block w-[120px] h-[44px]"
+                          >
+                            <Image
+                              src={assets.playstore_icon}
+                              alt="Get it on Google Play"
+                              width={140}
+                              height={44}
+                              className="object-contain"
+                            />
+                          </Link>
+                        )}
+                      </div>
+                    )}
+
+
                   </div>
                 </div>
               </motion.div>
             ))}
           </motion.div>
         </AnimatePresence>
+
+
+        <div className="bg-[#556B2F] to-[#4A6B49] mt-25 rounded-3xl p-8 md:p-12 flex flex-col md:flex-row items-center justify-between gap-6 shadow-lg">
+          {/* CTA Content */}
+          <div className="text-center md:text-left">
+            <h3 className="text-3xl md:text-4xl font-medium text-white mb-3">
+              Ready To Build Something Amazing
+            </h3>
+            <p className="text-white text-base font-light md:text-lg leading-relaxed max-w-2xl">
+              Let's bring your ideas to life with beautiful design and powerful technology.
+            </p>
+          </div>
+
+          {/* CTA Button */}
+          <Link
+            href="/contact" // change to where you want it to go
+            className="hidden md:flex items-center gap-2 bg-[#F24F04] hover:bg-orange-600 text-white px-6 py-3 rounded-full transition"
+          >
+            Start a Project
+            <Rocket className="w-4 h-4" />
+          </Link>
+        </div>
       </div>
 
-      {/* ----------------------------- CTA ----------------------------- */}
-      <div className="max-w-7xl mx-auto bg-[#5B6B32] mt-20 sm:mt-24 rounded-3xl md:rounded-[48px]
-        px-6 sm:px-10 py-12 sm:py-16
-        flex flex-col md:flex-row items-start md:items-center gap-8 md:gap-10">
-        
-        <div className="text-white max-w-xl">
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold leading-tight">
-            Ready To Build Something Amazing
-          </h2>
-          <p className="text-white/80 mt-4 text-sm sm:text-lg">
-            Let’s bring your ideas to life with beautiful design and powerful technology.
-          </p>
-        </div>
+      {/* CTA Banner */}
 
-        <button className="bg-orange-500 hover:bg-orange-600 text-white px-6 py-3 rounded-full font-medium flex items-center gap-2">
-          Start a Project <Rocket className="w-5 h-5" />
-        </button>
-      </div>    
     </section>
   )
 }

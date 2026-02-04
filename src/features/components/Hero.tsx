@@ -14,7 +14,7 @@ const Hero = () => {
       {/* Grid background */}
       <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.03)_1px,transparent_1px)] bg-[size:100px_100px]" />
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full flex flex-col items-center">
+      <div className="max-w-screen mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full flex flex-col items-center">
         <div className="text-center max-w-5xl mx-auto relative">
           {/* Trust badge */}
           <div className="inline-flex flex-col sm:flex-row items-center gap-2 mb-6 sm:mb-8 px-4 py-2 bg-white/5 backdrop-blur-sm border border-white/10 rounded-full text-center sm:text-left">

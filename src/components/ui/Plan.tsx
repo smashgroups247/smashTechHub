@@ -332,7 +332,7 @@ export default function Plan() {
 
     return (
         <section className="py-20 px-6 mt-10 bg-[#FFF8F5]">
-            <div className="max-w-7xl mx-auto">
+            <div className="max-w-screen mx-auto">
                 {/* Header Section */}
                 <div className="mb-16">
                     {/* Main Heading */}
