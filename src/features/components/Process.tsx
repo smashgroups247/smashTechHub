@@ -3,7 +3,7 @@
 import { useEffect, useRef, useState } from "react"
 import Image from "next/image"
 import { assets } from "../../../assets/assets"
-import { motion } from "framer-motion"
+import { motion, easeOut } from "framer-motion"
 
 export default function Process() {
     const sectionRef = useRef<HTMLDivElement>(null)
@@ -42,12 +42,12 @@ export default function Process() {
 
     const stepVariants = {
         hidden: { opacity: 0, y: 50 },
-        visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: "easeOut" } },
+        visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: easeOut } },
     }
 
     const imageVariants = {
         hidden: { opacity: 0, scale: 0.95 },
-        visible: { opacity: 1, scale: 1, transition: { duration: 0.8, ease: "easeOut" } },
+        visible: { opacity: 1, scale: 1, transition: { duration: 0.8, ease: easeOut } },
     }
 
     return (

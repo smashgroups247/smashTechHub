@@ -3,7 +3,7 @@
 import { Rocket } from 'lucide-react'
 import Link from 'next/link'
 import { useState, useRef } from 'react'
-import { motion, useInView, AnimatePresence } from 'framer-motion'
+import { motion, useInView, AnimatePresence, easeOut } from 'framer-motion'
 
 /* ---------------- TYPES ---------------- */
 
@@ -55,7 +55,7 @@ const itemVariants = {
   visible: {
     opacity: 1,
     y: 0,
-    transition: { duration: 0.5, ease: 'easeOut' },
+    transition: { duration: 0.5, ease: easeOut },
   },
 }
 
@@ -64,7 +64,7 @@ const answerVariants = {
   visible: {
     opacity: 1,
     height: 'auto',
-    transition: { duration: 0.35, ease: 'easeOut' },
+    transition: { duration: 0.35, ease: easeOut },
   },
 }
 

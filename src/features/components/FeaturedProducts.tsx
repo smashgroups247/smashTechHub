@@ -28,7 +28,7 @@ import {
   Store,
   PhoneCall,
 } from "lucide-react";
-import { motion } from "framer-motion";
+import { motion, easeInOut } from "framer-motion";
 import { assets } from "../../../assets/assets";
 
 /* =======================
@@ -40,7 +40,7 @@ const fadeUp = {
   visible: {
     opacity: 1,
     y: 0,
-    transition: { duration: 0.6, ease: "easeOut" },
+    transition: { duration: 0.6, ease: easeInOut },
   },
 };
 
@@ -59,7 +59,7 @@ const cardFade = {
     opacity: 1,
     y: 0,
     scale: 1,
-    transition: { duration: 0.5, ease: "easeOut" },
+    transition: { duration: 0.5, ease: easeInOut },
   },
 };
 

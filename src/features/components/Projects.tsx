@@ -5,10 +5,10 @@ import { ArrowRight } from "lucide-react";
 import Image from "next/image";
 import { assets } from "../../../assets/assets";
 import Link from "next/link";
-import { motion } from "framer-motion";
+import { motion, easeInOut } from "framer-motion";
 
 const Projects = () => {
-  const fadeUp = { hidden: { opacity: 0, y: 40 }, visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: "easeOut" } } };
+  const fadeUp = { hidden: { opacity: 0, y: 40 }, visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: easeInOut } } };
 
   return (
     <section className="py-24 bg-black relative overflow-hidden">
