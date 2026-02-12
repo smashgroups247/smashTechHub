@@ -68,6 +68,7 @@ const FeaturedProducts = () => {
     {
       name: "Smashwise",
       logo: assets.smashwise,
+      website: "https://smashchat.org/", // ✅ add site
       color: "text-orange-500",
       featureBg: "bg-orange-50",
       features: ["Verified Sellers", "Genuine Products", "Secure Payments", "Quick Delivery"],
@@ -76,6 +77,7 @@ const FeaturedProducts = () => {
     {
       name: "Ridesmash",
       logo: assets.ridesmash,
+      website: "https://www.ridesmash.com/",
       color: "text-blue-900",
       featureBg: "bg-blue-50",
       features: ["Verified Drivers", "Book Ride/Send Parcel", "Register Vehicle", "Drive & Earn"],
@@ -84,6 +86,7 @@ const FeaturedProducts = () => {
     {
       name: "Qiimeet",
       logo: assets.qiimeet,
+      website: "https://qiimeet.com",
       color: "text-blue-500",
       featureBg: "bg-red-50",
       features: ["Verified Profiles", "Secure Connections", "Exclusive Matching", "Video Call Feature"],
@@ -92,6 +95,7 @@ const FeaturedProducts = () => {
     {
       name: "Paradise Estate",
       logo: assets.paradise,
+      website: "https://paradiseestate.com",
       color: "text-red-500",
       featureBg: "bg-red-50",
       features: ["Manage Residents", "Manage Visitors", "Manage Staffs", "Manage Payments"],
@@ -100,6 +104,7 @@ const FeaturedProducts = () => {
     {
       name: "SmashFood",
       logo: assets.smashfood,
+      website: "https://www.smashfood247.com/",
       color: "text-red-500",
       featureBg: "bg-red-50",
       features: ["Browse & Discover", "Place Your Order", "Meal Prep", "Rider Delivers"],
@@ -108,6 +113,7 @@ const FeaturedProducts = () => {
     {
       name: "SmashChat",
       logo: assets.smashchat,
+      website: "https://smashchat.org/",
       color: "text-blue-500",
       featureBg: "bg-blue-50",
       features: ["Chat Loved Ones", "Marketplace", "Become a Vendor", "Schedule Calls"],
@@ -189,11 +195,14 @@ const FeaturedProducts = () => {
                 })}
               </div>
 
+              {/* ✅ LINK TO PRODUCT WEBSITE */}
               <Link
-                href="/checkout"
+                href={product.website}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="mt-auto block w-full bg-orange-500 hover:bg-orange-600 text-white py-3 rounded-full font-semibold transition text-center"
               >
-                View
+                Visit Website
               </Link>
             </motion.div>
           ))}
