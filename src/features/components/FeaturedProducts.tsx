@@ -202,7 +202,7 @@ const FeaturedProducts = () => {
                 rel="noopener noreferrer"
                 className="mt-auto block w-full bg-orange-500 hover:bg-orange-600 text-white py-3 rounded-full font-semibold transition text-center"
               >
-                Visit Website
+                View
               </Link>
             </motion.div>
           ))}
