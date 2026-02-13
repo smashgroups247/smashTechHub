@@ -1,3 +1,4 @@
+
 "use client";
 import React, { useState, useRef, useEffect } from "react";
 import Link from "next/link";
@@ -33,7 +34,7 @@ const Navbar = () => {
     { title: "Most Viewed", items: ["Ecommerce", "Estate management", "Accounting"] },
     { title: "Management", items: ["Expense Management", "Attendance management", "Employee Verification"] },
     { title: "Platforms", items: ["Dating", "Ride-hailing", "Food-delivery"] },
-    { title: "Industries", items: ["Fintech", "Logistics", "Church"] },
+    { title: "Industries", items: ["Fintech", "Logistics"] },
   ];
 
   const navLinks = [
@@ -100,12 +101,7 @@ const Navbar = () => {
       { title: "SmashLogistics", description: "Send parcel seamlessly", image: assets.smashLogistics_logo },
       { title: "SmashLogistics", description: "Send parcel seamlessly", image: assets.smashLogistics_logo },
       { title: "SmashLogistics", description: "Send parcel seamlessly", image: assets.smashLogistics_logo }
-    ],
-    Church: [
-      { title: "Church", description: "Manage your church seamlessly", image: assets.smashTechnology_logo },
-      { title: "Church", description: "Manage your church seamlessly", image: assets.smashTechnology_logo },
-      { title: "Church", description: "Manage your church seamlessly", image: assets.smashTechnology_logo }
-    ],
+    ]
   };
 
   return (
