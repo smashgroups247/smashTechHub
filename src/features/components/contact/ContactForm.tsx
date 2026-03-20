@@ -1,10 +1,10 @@
 'use client'
 
-import { Phone, Mail, MapPin, Clock } from 'lucide-react'
+import { Phone, Mail, MapPin, Clock, Loader2, CheckCircle } from 'lucide-react'
 import Image from 'next/image'
-import { useState } from 'react'
-import { motion } from 'framer-motion'
+import { motion, AnimatePresence } from 'framer-motion'
 import { assets } from "../../../../assets/assets"
+import { useContactForm } from "../../../hooks/useContactForm"
 
 const fadeUp = {
     hidden: { opacity: 0, y: 40 },
@@ -22,21 +22,11 @@ const fadeRight = {
 }
 
 const ContactForm = () => {
-    const [formData, setFormData] = useState({
-        name: '',
-        email: '',
-        service: '',
-        message: ''
-    })
-    const [charCount, setCharCount] = useState(0)
-
-    const handleMessageChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
-        const text = e.target.value
-        if (text.length <= 200) {
-            setFormData({ ...formData, message: text })
-            setCharCount(text.length)
-        }
-    }
+    const { form, onSubmit, isSubmitting, isSuccess } = useContactForm();
+    const { register, formState: { errors }, watch } = form;
+    
+    const projectDetails = watch("projectDetails") || "";
+    const charCount = projectDetails.length;
 
     return (
         <motion.section
@@ -65,54 +55,112 @@ const ContactForm = () => {
                     {/* Form */}
                     <motion.div
                         variants={fadeLeft}
-                        className="bg-[#FAFAFA] rounded-3xl p-8 lg:p-10"
+                        className="bg-[#FAFAFA] rounded-3xl p-8 lg:p-10 relative overflow-hidden"
                     >
+                        <AnimatePresence>
+                            {isSuccess && (
+                                <motion.div
+                                    initial={{ opacity: 0, scale: 0.95 }}
+                                    animate={{ opacity: 1, scale: 1 }}
+                                    exit={{ opacity: 0, scale: 0.95 }}
+                                    className="absolute inset-0 z-10 bg-[#FAFAFA] flex flex-col items-center justify-center p-8 text-center"
+                                >
+                                    <CheckCircle className="w-16 h-16 text-green-500 mb-4" />
+                                    <h3 className="text-2xl font-bold text-gray-900 mb-2">Message Sent!</h3>
+                                    <p className="text-gray-600">
+                                        We’ve received your request. Our team will reach out shortly.
+                                    </p>
+                                </motion.div>
+                            )}
+                        </AnimatePresence>
+
                         <h3 className="text-2xl font-bold text-gray-900 mb-6">
                             Get in Touch
                         </h3>
 
-                        <form className="space-y-6">
-                            <input
-                                type="text"
-                                placeholder="Name"
-                                value={formData.name}
-                                onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                                className="w-full px-4 py-3 rounded-xl focus:ring-2 focus:ring-orange-500"
-                            />
-
-                            <input
-                                type="email"
-                                placeholder="Email"
-                                value={formData.email}
-                                onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                                className="w-full px-4 py-3 rounded-xl focus:ring-2 focus:ring-orange-500"
-                            />
-
-                            <select
-                                value={formData.service}
-                                onChange={(e) => setFormData({ ...formData, service: e.target.value })}
-                                className="w-full px-4 py-3 rounded-xl focus:ring-2 focus:ring-orange-500"
-                            >
-                                <option value="">Select a service</option>
-                                <option value="web-development">Web Development</option>
-                                <option value="mobile-app">Mobile App Development</option>
-                                <option value="ui-ux-design">UI/UX Design</option>
-                                <option value="consulting">Consulting</option>
-                            </select>
-
-                            <textarea
-                                rows={5}
-                                placeholder="Brief details about your project"
-                                value={formData.message}
-                                onChange={handleMessageChange}
-                                className="w-full px-4 py-3 rounded-xl focus:ring-2 focus:ring-orange-500 resize-none"
-                            />
-                            <div className="text-right text-sm text-gray-500">
-                                {charCount}/200
+                        <form onSubmit={onSubmit} className="space-y-6">
+                            <div>
+                                <input
+                                    type="text"
+                                    placeholder="Name"
+                                    {...register("fullName")}
+                                    className={`w-full px-4 py-3 rounded-xl focus:ring-2 outline-none transition-colors ${
+                                        errors.fullName ? "border-2 border-red-500 focus:ring-red-200" : "focus:ring-orange-500 border border-transparent"
+                                    }`}
+                                    disabled={isSubmitting}
+                                    aria-invalid={errors.fullName ? "true" : "false"}
+                                />
+                                {errors.fullName && (
+                                    <p className="text-red-500 text-sm mt-1">{errors.fullName.message}</p>
+                                )}
                             </div>
 
-                            <button className="bg-orange-500 hover:bg-orange-600 text-white px-10 py-4 rounded-full font-bold">
-                                Submit
+                            <div>
+                                <input
+                                    type="email"
+                                    placeholder="Email"
+                                    {...register("email")}
+                                    className={`w-full px-4 py-3 rounded-xl focus:ring-2 outline-none transition-colors ${
+                                        errors.email ? "border-2 border-red-500 focus:ring-red-200" : "focus:ring-orange-500 border border-transparent"
+                                    }`}
+                                    disabled={isSubmitting}
+                                    aria-invalid={errors.email ? "true" : "false"}
+                                />
+                                {errors.email && (
+                                    <p className="text-red-500 text-sm mt-1">{errors.email.message}</p>
+                                )}
+                            </div>
+
+                            <div>
+                                <select
+                                    {...register("serviceOfInterest")}
+                                    className={`w-full px-4 py-3 rounded-xl focus:ring-2 outline-none transition-colors ${
+                                        errors.serviceOfInterest ? "border-2 border-red-500 focus:ring-red-200" : "focus:ring-orange-500 border border-transparent"
+                                    }`}
+                                    disabled={isSubmitting}
+                                    aria-invalid={errors.serviceOfInterest ? "true" : "false"}
+                                >
+                                    <option value="">Select a service</option>
+                                    <option value="Web Development">Web Development</option>
+                                    <option value="Mobile App Development">Mobile App Development</option>
+                                    <option value="UI/UX Design">UI/UX Design</option>
+                                    <option value="Consulting">Consulting</option>
+                                </select>
+                                {errors.serviceOfInterest && (
+                                    <p className="text-red-500 text-sm mt-1">{errors.serviceOfInterest.message}</p>
+                                )}
+                            </div>
+
+                            <div>
+                                <textarea
+                                    rows={5}
+                                    placeholder="Brief details about your project"
+                                    {...register("projectDetails")}
+                                    className={`w-full px-4 py-3 rounded-xl focus:ring-2 outline-none resize-none transition-colors ${
+                                        errors.projectDetails ? "border-2 border-red-500 focus:ring-red-200" : "focus:ring-orange-500 border border-transparent"
+                                    }`}
+                                    disabled={isSubmitting}
+                                    aria-invalid={errors.projectDetails ? "true" : "false"}
+                                />
+                                <div className="flex justify-between items-center mt-1">
+                                    <div className="flex-1">
+                                        {errors.projectDetails && (
+                                            <p className="text-red-500 text-sm">{errors.projectDetails.message}</p>
+                                        )}
+                                    </div>
+                                    <div className={`text-sm ${charCount > 500 ? 'text-red-500' : 'text-gray-500'}`}>
+                                        {charCount}/500
+                                    </div>
+                                </div>
+                            </div>
+
+                            <button 
+                                type="submit"
+                                disabled={isSubmitting}
+                                className="bg-orange-500 hover:bg-orange-600 disabled:bg-orange-300 disabled:cursor-not-allowed text-white px-10 py-4 rounded-full font-bold flex items-center justify-center gap-2 transition-colors w-full sm:w-auto"
+                            >
+                                {isSubmitting && <Loader2 className="w-5 h-5 animate-spin" />}
+                                {isSubmitting ? "Submitting..." : "Submit"}
                             </button>
                         </form>
                     </motion.div>
