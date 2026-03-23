@@ -48,6 +48,9 @@ export const useAuthStore = create<AuthState>()(
       },
 
       clearAuth: () => {
+        if (typeof document !== 'undefined') {
+          document.cookie = 'auth_token_presence=; path=/; expires=Thu, 01 Jan 1970 00:00:00 GMT; SameSite=Lax';
+        }
         localStorage.removeItem('auth_token');
         localStorage.removeItem('auth_refresh_token');
         localStorage.removeItem('auth_user');
