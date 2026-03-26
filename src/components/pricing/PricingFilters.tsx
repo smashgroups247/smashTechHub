@@ -29,6 +29,26 @@ export default function PricingFilters({ filters, setFilters }: PricingFiltersPr
           <option value="false">Inactive</option>
         </select>
 
+        {/* Category Filter */}
+        <select
+          value={filters.category || ''}
+          onChange={(e) => {
+            const val = e.target.value;
+            setFilters((prev) => ({
+              ...prev,
+              category: val === '' ? undefined : val,
+              page: 1, // Reset page
+            }));
+          }}
+          className="bg-gray-50 border border-gray-200 text-gray-900 text-sm rounded-lg focus:ring-indigo-500 focus:border-indigo-500 block p-2.5 w-full md:w-36"
+        >
+          <option value="">All Categories</option>
+          <option value="WEBSITE">Website</option>
+          <option value="WEB_APP">Web App</option>
+          <option value="MOBILE_APP">Mobile App</option>
+          <option value="BRANDING">Branding</option>
+        </select>
+
         {/* Sort By Filter */}
         <select
           value={filters.sortBy || 'displayOrder'}

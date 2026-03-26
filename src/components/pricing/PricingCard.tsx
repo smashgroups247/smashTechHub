@@ -23,6 +23,26 @@ export default function PricingCard({
   const displayedFeatures = expanded ? plan.features : plan.features.slice(0, 3);
   const hasMoreFeatures = plan.features.length > 3;
 
+  const getCategoryColor = (category: string) => {
+    switch (category) {
+      case 'WEBSITE': return 'bg-blue-100 text-blue-800';
+      case 'WEB_APP': return 'bg-purple-100 text-purple-800';
+      case 'MOBILE_APP': return 'bg-green-100 text-green-800';
+      case 'BRANDING': return 'bg-orange-100 text-orange-800';
+      default: return 'bg-gray-100 text-gray-800';
+    }
+  };
+  
+  const getCategoryLabel = (category: string) => {
+    switch (category) {
+      case 'WEBSITE': return 'Website';
+      case 'WEB_APP': return 'Web App';
+      case 'MOBILE_APP': return 'Mobile App';
+      case 'BRANDING': return 'Branding';
+      default: return category;
+    }
+  };
+
   return (
     <motion.div
       layout
@@ -38,13 +58,22 @@ export default function PricingCard({
               <p className="text-sm text-gray-500 mt-1 line-clamp-2">{plan.description}</p>
             )}
           </div>
-          <span
-            className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium ${
-              plan.isActive ? 'bg-emerald-100 text-emerald-800' : 'bg-gray-100 text-gray-800'
-            }`}
-          >
-            {plan.isActive ? 'Active' : 'Inactive'}
-          </span>
+          <div className="flex flex-col gap-2 items-end">
+            <span
+              className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium ${
+                plan.isActive ? 'bg-emerald-100 text-emerald-800' : 'bg-gray-100 text-gray-800'
+              }`}
+            >
+              {plan.isActive ? 'Active' : 'Inactive'}
+            </span>
+            {plan.category && (
+              <span
+                className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium ${getCategoryColor(plan.category)}`}
+              >
+                {getCategoryLabel(plan.category)}
+              </span>
+            )}
+          </div>
         </div>
 
         <div className="mt-4 flex items-baseline text-4xl font-extrabold text-gray-900 mb-2">
@@ -102,7 +131,7 @@ export default function PricingCard({
               type="checkbox"
               className="sr-only peer"
               checked={plan.isActive}
-              onChange={() => onToggleStatus(plan.id || plan._id, plan.isActive)}
+              onChange={() => onToggleStatus(plan.id, plan.isActive)}
               disabled={isToggling}
             />
             <div className="w-11 h-6 bg-gray-200 peer-focus:outline-none ring-0 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-indigo-600 disabled:opacity-50"></div>
@@ -120,7 +149,7 @@ export default function PricingCard({
           
           <button
             className="flex justify-center items-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-red-700 bg-red-100 hover:bg-red-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500"
-            onClick={() => onDelete(plan.id || plan._id)}
+            onClick={() => onDelete(plan.id)}
           >
             <Trash2 className="w-4 h-4 mr-2" />
             Delete

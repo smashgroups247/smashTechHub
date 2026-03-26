@@ -11,6 +11,7 @@ const planSchema = z.object({
   name: z.string().min(1, 'Name is required'),
   price: z.number().min(0, 'Price must be 0 or greater'),
   currency: z.string(),
+  category: z.enum(['WEBSITE', 'WEB_APP', 'MOBILE_APP', 'BRANDING']),
   billingCycle: z.enum(['monthly', 'yearly', 'one-time']),
   features: z.array(z.string()).min(1, 'At least one feature is required'),
   description: z.string().optional(),
@@ -49,6 +50,7 @@ export default function PricingFormDrawer({
       name: '',
       price: 0,
       currency: 'NGN',
+      category: 'WEBSITE',
       billingCycle: 'monthly',
       features: [],
       description: '',
@@ -69,6 +71,7 @@ export default function PricingFormDrawer({
           name: plan.name,
           price: plan.price / 100, // convert kobo to NGN for input
           currency: plan.currency || 'NGN',
+          category: plan.category || 'WEBSITE',
           billingCycle: plan.billingCycle,
           features: [...plan.features],
           description: plan.description || '',
@@ -80,6 +83,7 @@ export default function PricingFormDrawer({
           name: '',
           price: 0,
           currency: 'NGN',
+          category: 'WEBSITE',
           billingCycle: 'monthly',
           features: [],
           description: '',
@@ -191,6 +195,27 @@ export default function PricingFormDrawer({
                         <option value="NGN">NGN (₦)</option>
                       </select>
                     </div>
+                  </div>
+
+                  {/* Category */}
+                  <div>
+                    <label htmlFor="category" className="block text-sm font-medium text-gray-700">
+                      Category <span className="text-red-500">*</span>
+                    </label>
+                    <select
+                      id="category"
+                      {...register('category')}
+                      disabled={isLoading}
+                      className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm px-3 py-2 border"
+                    >
+                      <option value="WEBSITE">Website</option>
+                      <option value="WEB_APP">Web App</option>
+                      <option value="MOBILE_APP">Mobile App</option>
+                      <option value="BRANDING">Branding</option>
+                    </select>
+                    {errors.category && (
+                      <p className="mt-2 text-sm text-red-600">{errors.category.message}</p>
+                    )}
                   </div>
 
                   {/* Billing Cycle */}

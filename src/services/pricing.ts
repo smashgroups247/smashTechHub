@@ -1,17 +1,19 @@
 import { useQuery } from '@tanstack/react-query';
 import axios from 'axios';
 
+export type PricingCategory = 'WEBSITE' | 'WEB_APP' | 'MOBILE_APP' | 'BRANDING';
+
 export interface PricingPlan {
   id: string;
   name: string;
   price: number;
   currency: string;
-  billingCycle: "monthly" | "yearly" | "one-time";
+  billingCycle: 'monthly' | 'yearly' | 'one-time';
   features: string[];
   description: string;
   displayOrder: number;
   isActive: boolean;
-  category?: string;
+  category: PricingCategory;
 }
 
 export const fetchActivePricingPlans = async (): Promise<PricingPlan[]> => {

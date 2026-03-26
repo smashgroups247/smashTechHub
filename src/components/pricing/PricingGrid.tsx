@@ -43,7 +43,7 @@ export default function PricingGrid({
     >
       {plans.map((plan) => (
         <PricingCard
-          key={plan.id || plan._id}
+          key={plan.id}
           plan={plan}
           onEdit={onEdit}
           onDelete={onDelete}

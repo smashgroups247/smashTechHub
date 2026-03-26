@@ -1,4 +1,5 @@
 export type BillingCycle = 'monthly' | 'yearly' | 'one-time';
+export type PricingCategory = 'WEBSITE' | 'WEB_APP' | 'MOBILE_APP' | 'BRANDING';
 
 export interface PricingPlan {
   _id: string;
@@ -6,6 +7,7 @@ export interface PricingPlan {
   name: string;
   price: number;
   currency: string;
+  category: PricingCategory;
   billingCycle: BillingCycle;
   features: string[];
   description: string;
@@ -20,6 +22,7 @@ export interface CreatePricingPlanDto {
   name: string;
   price: number;
   currency: string;
+  category: PricingCategory;
   billingCycle: BillingCycle;
   features: string[];
   description?: string;
@@ -35,6 +38,7 @@ export interface PricingQueryParams {
   sortBy?: string;
   sortOrder?: 'asc' | 'desc';
   isActive?: boolean;
+  category?: PricingCategory | string;
 }
 
 export interface PaginatedResponse<T> {

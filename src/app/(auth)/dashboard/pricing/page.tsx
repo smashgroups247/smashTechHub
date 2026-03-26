@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useMemo } from 'react';
 import { DashboardLayout } from '@/components/layout/DashboardLayout';
 import { Plus, ChevronLeft, ChevronRight } from 'lucide-react';
 import { usePricingPlans } from '@/hooks/usePricingPlans';
@@ -36,9 +36,42 @@ export default function PricingPage() {
   const [selectedPlan, setSelectedPlan] = useState<PricingPlan | null>(null);
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
   const [planToDelete, setPlanToDelete] = useState<PricingPlan | null>(null);
+  const [activeTab, setActiveTab] = useState<string>('All');
+
+  const categories = [
+    { id: 'All', label: 'All' },
+    { id: 'WEBSITE', label: 'Website' },
+    { id: 'WEB_APP', label: 'Web App' },
+    { id: 'MOBILE_APP', label: 'Mobile App' },
+    { id: 'BRANDING', label: 'Branding' },
+  ];
 
   const plans = data?.data || [];
   const pagination = data?.pagination;
+
+  const groupedPlans = useMemo(() => {
+    const list = plans || [];
+    
+    // Filter by active tab
+    const filtered = activeTab === 'All' 
+      ? list 
+      : list.filter(p => p.category === activeTab);
+      
+    // Group by category
+    const grouped = filtered.reduce((acc, plan) => {
+      const cat = plan.category || 'WEBSITE';
+      if (!acc[cat]) acc[cat] = [];
+      acc[cat].push(plan);
+      return acc;
+    }, {} as Record<string, PricingPlan[]>);
+    
+    // Sort each group by displayOrder
+    Object.keys(grouped).forEach(key => {
+      grouped[key].sort((a, b) => a.displayOrder - b.displayOrder);
+    });
+    
+    return grouped;
+  }, [plans, activeTab]);
 
   // Handlers
   const handleCreateNew = () => {
@@ -56,7 +89,7 @@ export default function PricingPage() {
   };
 
   const handleDeleteRequest = (id: string) => {
-    const plan = plans.find((p) => p.id === id || p._id === id);
+    const plan = plans.find((p) => p.id === id);
     if (plan) {
       setPlanToDelete(plan);
     }
@@ -64,7 +97,7 @@ export default function PricingPage() {
 
   const handleConfirmDelete = () => {
     if (planToDelete) {
-      const id = planToDelete.id || planToDelete._id;
+      const id = planToDelete.id;
       deletePlan(id, {
         onSuccess: () => {
           setPlanToDelete(null);
@@ -75,7 +108,7 @@ export default function PricingPage() {
 
   const handleSubmitForm = (formData: any) => {
     if (selectedPlan) {
-      const id = selectedPlan.id || selectedPlan._id;
+      const id = selectedPlan.id;
       updatePlan(
         { id, dto: formData },
         {
@@ -119,16 +152,62 @@ export default function PricingPage() {
 
         {/* Main Content */}
         <div className="min-h-[500px]">
+          {/* Category Tabs */}
+          <div className="flex space-x-2 border-b border-gray-200 mb-6 overflow-x-auto pb-2">
+            {categories.map((cat) => (
+              <button
+                key={cat.id}
+                onClick={() => setActiveTab(cat.id)}
+                className={`px-4 py-2 text-sm font-medium rounded-t-lg whitespace-nowrap transition-colors ${
+                  activeTab === cat.id
+                    ? 'bg-indigo-50 text-indigo-700 border-b-2 border-indigo-700'
+                    : 'text-gray-500 hover:text-gray-700 hover:bg-gray-50'
+                }`}
+              >
+                {cat.label}
+              </button>
+            ))}
+          </div>
+
           {isFetching ? (
             <PricingSkeletons />
+          ) : plans.length === 0 ? (
+            <div className="bg-white rounded-2xl border border-dashed border-gray-300 p-12 text-center flex flex-col items-center">
+              <div className="w-16 h-16 bg-indigo-50 text-indigo-500 rounded-full flex items-center justify-center mb-4">
+                <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
+                </svg>
+              </div>
+              <h3 className="text-xl font-medium text-gray-900 mb-2">No pricing plans yet</h3>
+              <p className="text-gray-500 max-w-sm mb-6">
+                Get started by creating your first pricing plan. It will appear here once created.
+              </p>
+            </div>
           ) : (
-            <PricingGrid
-              plans={plans}
-              onEdit={handleEdit}
-              onDelete={handleDeleteRequest}
-              onToggleStatus={handleToggleStatus}
-              isToggling={isToggling}
-            />
+            <div className="space-y-12">
+              {Object.entries(groupedPlans).map(([category, items]) => (
+                <div key={category}>
+                  <h3 className="text-xl font-bold text-gray-900 mb-6 border-b pb-2 flex items-center gap-2">
+                    {categories.find(c => c.id === category)?.label || category} Plans
+                    <span className="bg-gray-100 text-gray-600 py-0.5 px-2.5 rounded-full text-xs font-medium">
+                      {items.length}
+                    </span>
+                  </h3>
+                  <PricingGrid
+                    plans={items}
+                    onEdit={handleEdit}
+                    onDelete={handleDeleteRequest}
+                    onToggleStatus={handleToggleStatus}
+                    isToggling={isToggling}
+                  />
+                </div>
+              ))}
+              {Object.keys(groupedPlans).length === 0 && plans.length > 0 && (
+                <div className="text-center py-12 text-gray-500">
+                  No plans found for {categories.find(c => c.id === activeTab)?.label} category.
+                </div>
+              )}
+            </div>
           )}
         </div>
 
