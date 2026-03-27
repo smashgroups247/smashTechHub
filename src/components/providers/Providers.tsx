@@ -17,7 +17,6 @@ export function Providers({ children }: ProvidersProps) {
             staleTime: 30_000,
             retry: 1,
             refetchOnWindowFocus: false,
-            throwOnError: true, // Allow Error Boundaries to catch fetch failures
           },
           mutations: {
             // Optional: throwOnError: true for mutations
