@@ -17,7 +17,8 @@ export interface PricingPlan {
 }
 
 export const fetchActivePricingPlans = async (): Promise<PricingPlan[]> => {
-  const response = await axios.get('http://localhost:3001/api/v1/pricing/active');
+  const API_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5000';
+  const response = await axios.get(`${API_URL}/api/v1/pricing/active`);
   return response.data.data;
 };
 

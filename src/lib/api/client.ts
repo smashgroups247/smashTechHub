@@ -6,7 +6,9 @@ import axios, { AxiosError, InternalAxiosRequestConfig } from 'axios';
 import { toast } from 'react-hot-toast';
 import { useAuthStore } from '@/store/authStore';
 
-const BASE_URL = process.env.NEXT_PUBLIC_API_BASE_URL ?? 'http://localhost:3001/api/v1';
+const BASE_URL = process.env.NEXT_PUBLIC_API_URL
+  ? `${process.env.NEXT_PUBLIC_API_URL}/api/v1`
+  : 'http://localhost:5000/api/v1';
 
 export const apiClient = axios.create({
   baseURL: BASE_URL,
@@ -15,6 +17,7 @@ export const apiClient = axios.create({
   },
   timeout: 15_000,
 });
+
 
 // ─── Request Interceptor ──────────────────────────────────────────────────────
 apiClient.interceptors.request.use(
