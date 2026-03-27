@@ -68,7 +68,7 @@ const FeaturedProducts = () => {
     {
       name: "Smashwise",
       logo: assets.smashwise,
-      website: "https://smashchat.org/", // ✅ add site
+      website: "https://smashchat.org/",
       color: "text-orange-500",
       featureBg: "bg-orange-50",
       features: ["Verified Sellers", "Genuine Products", "Secure Payments", "Quick Delivery"],
