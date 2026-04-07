@@ -13,8 +13,8 @@ export default function StatsBar() {
 
   // Find lowest and highest price of active plans
   const activePrices = plans.filter((p) => p.isActive).map((p) => p.price);
-  const minPrice = activePrices.length > 0 ? Math.min(...activePrices) / 100 : 0;
-  const maxPrice = activePrices.length > 0 ? Math.max(...activePrices) / 100 : 0;
+  const minPrice = activePrices.length > 0 ? Math.min(...activePrices) : 0;
+  const maxPrice = activePrices.length > 0 ? Math.max(...activePrices) : 0;
 
   const formatPrice = (p: number) => `₦${p.toLocaleString()}`;
   const priceRange =
