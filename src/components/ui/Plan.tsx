@@ -107,6 +107,11 @@ function PlanCard({ plan, bgColor }: PlanCardProps) {
       {/* CTA Button */}
       <button
         aria-label={ctaLabel}
+        onClick={() => {
+          const subject = encodeURIComponent(`Inquiry about ${plan.categoryLabel} - ${plan.displayName}`);
+          const body = encodeURIComponent(`Hello,\n\nI would like to get started with the ${plan.displayName} plan for ${plan.categoryLabel}.\n\nPrice: ${plan.price}\nBilling: ${plan.billing}\n\nPlease let me know the next steps.`);
+          window.location.href = `mailto:wecare@smashtechgroup.com?subject=${subject}&body=${body}`;
+        }}
         className="w-full bg-[#F24F04] hover:bg-[#FF5722] text-white font-medium py-3 px-6
           rounded-full transition-all duration-300 hover:shadow-md active:scale-[0.98] mt-auto
           group-hover:ring-2 group-hover:ring-[#F24F04]/40"
