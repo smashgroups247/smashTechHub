@@ -69,7 +69,7 @@ export default function PricingFormDrawer({
       if (plan) {
         reset({
           name: plan.name,
-          price: plan.price / 100, // convert kobo to NGN for input
+          price: plan.price, // DB stores plain NGN — no unit conversion needed
           currency: plan.currency || 'NGN',
           category: plan.category || 'WEBSITE',
           billingCycle: plan.billingCycle,
@@ -95,11 +95,8 @@ export default function PricingFormDrawer({
   }, [isOpen, plan, reset]);
 
   const handleFormSubmit = (data: PlanFormData) => {
-    const submitData = {
-      ...data,
-      price: Math.round(data.price * 100), // convert back to smallest unit before submitting
-    };
-    onSubmit(submitData);
+    // DB stores plain NGN — submit the value as-is (no unit conversion)
+    onSubmit({ ...data, price: data.price });
   };
 
   if (!isOpen) return null;
@@ -178,6 +175,12 @@ export default function PricingFormDrawer({
                           placeholder="0.00"
                         />
                       </div>
+                      {/* Formatted preview so the admin can verify the value */}
+                      {priceInput > 0 && !errors.price && (
+                        <p className="mt-1 text-xs text-gray-500">
+                          ₦{priceInput.toLocaleString('en-NG')}
+                        </p>
+                      )}
                       {errors.price && (
                         <p className="mt-2 text-sm text-red-600">{errors.price.message}</p>
                       )}

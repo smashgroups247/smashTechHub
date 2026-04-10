@@ -19,7 +19,7 @@ export default function PricingCard({
   isToggling,
 }: PricingCardProps) {
   const [expanded, setExpanded] = useState(false);
-  const formattedPrice = `₦${(plan.price / 100).toLocaleString()}`;
+  const formattedPrice = `₦${plan.price.toLocaleString('en-NG')}`;
   const displayedFeatures = expanded ? plan.features : plan.features.slice(0, 3);
   const hasMoreFeatures = plan.features.length > 3;
 

@@ -19,7 +19,7 @@ import PricingSkeletons from '@/components/pricing/PricingSkeletons';
 export default function PricingPage() {
   const [filters, setFilters] = useState<PricingQueryParams>({
     page: 1,
-    limit: 10,
+    limit: 16,
     sortBy: 'displayOrder',
     sortOrder: 'asc',
   });
